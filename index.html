@@ -1,49 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Godmode App</title>
-  <style>
-    body {
-      background-color: #0A0A0A;
-      color: #F5F5F5;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-    header img {
-      width: 150px;
-      margin: 20px auto;
-    }
-    a {
-      color: #9ecfff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin: 10px 0;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Godmode - AI Fitness Companion</title>
+  <meta name="description" content="Transform your fitness journey with Godmode, the AI-powered fitness companion that creates personalized workout plans and tracks your progress.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <img src="godmode-logo.svg" alt="Godmode Logo">
-    <h1>Welcome to Godmode App</h1>
-    <p>Explore our AI fitness companion. Learn about how we protect your data and the rules for using the app.</p>
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="container">
+      <div class="nav-brand">
+        <img src="godmode-logo.svg" alt="Godmode Logo" class="logo">
+        <span class="brand-text">Godmode</span>
+      </div>
+      <nav class="nav">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="privacy.html" class="nav-link">Privacy</a></li>
+          <li><a href="terms.html" class="nav-link">Terms</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
   </header>
-  <nav>
-    <ul>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="terms.html">Terms of Use</a></li>
-      <li><a href="contact.html">Contact & Feedback</a></li>
-    </ul>
-  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content container">
+      <img src="godmode-logo.svg" alt="Godmode Logo" class="hero-logo">
+      <h1 class="hero-title">Welcome to Godmode</h1>
+      <p class="hero-subtitle">Transform your fitness journey with our AI-powered companion. Get personalized workouts, track your progress, and achieve your goals like never before.</p>
+      
+      <div class="hero-actions">
+        <a href="#features" class="btn btn-primary">Discover Features</a>
+        <a href="contact.html" class="btn btn-secondary">Get Support</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="fade-in">Why Choose Godmode?</h2>
+      <div class="grid grid-3">
+        <div class="card fade-in">
+          <h3 class="card-title">AI-Powered Workouts</h3>
+          <p class="card-text">Get personalized workout plans tailored to your fitness level, goals, and preferences. Our AI learns from your progress to optimize every session.</p>
+        </div>
+        
+        <div class="card fade-in">
+          <h3 class="card-title">Smart Progress Tracking</h3>
+          <p class="card-text">Monitor your fitness journey with detailed analytics, progress photos, and performance metrics that help you stay motivated and on track.</p>
+        </div>
+        
+        <div class="card fade-in">
+          <h3 class="card-title">Adaptive Training</h3>
+          <p class="card-text">Your workouts evolve with you. As you get stronger, our AI adjusts the intensity, exercises, and challenges to keep you progressing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Information Section -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="slide-in-left">
+          <h2>Your Fitness, Reimagined</h2>
+          <p>Godmode combines cutting-edge AI technology with proven fitness science to deliver a truly personalized experience. Whether you're a beginner or a seasoned athlete, our app adapts to your unique needs.</p>
+          <ul>
+            <li>✨ Personalized workout generation</li>
+            <li>📊 Comprehensive progress analytics</li>
+            <li>🎯 Goal-oriented training plans</li>
+            <li>🔄 Adaptive difficulty scaling</li>
+          </ul>
+        </div>
+        
+        <div class="card slide-in-right">
+          <h3 class="card-title">Ready to Start?</h3>
+          <p class="card-text">Join thousands of users who have transformed their fitness journey with Godmode. Download the app and experience the future of personal training.</p>
+          <div style="margin-top: 1.5rem;">
+            <a href="#" class="btn btn-primary" style="margin-right: 1rem;">Download App</a>
+            <a href="contact.html" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal Links Section -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="card fade-in">
+          <h3 class="card-title">Privacy Policy</h3>
+          <p class="card-text">Learn how we protect your personal information and fitness data with industry-leading security measures.</p>
+          <a href="privacy.html" class="btn btn-secondary">Read Policy</a>
+        </div>
+        
+        <div class="card fade-in">
+          <h3 class="card-title">Terms of Service</h3>
+          <p class="card-text">Understand your rights and responsibilities when using the Godmode app and our services.</p>
+          <a href="terms.html" class="btn btn-secondary">View Terms</a>
+        </div>
+        
+        <div class="card fade-in">
+          <h3 class="card-title">Contact & Support</h3>
+          <p class="card-text">Have questions or need help? Our support team is here to assist you on your fitness journey.</p>
+          <a href="contact.html" class="btn btn-secondary">Get Help</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Godmode. All rights reserved. Transform your fitness journey with AI.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

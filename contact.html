@@ -2,38 +2,120 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Godmode</title>
-  <style>
-    body { margin:0; padding:0; background-color:#0A0A0A; color:#F5F5F5; font-family: Arial, sans-serif; line-height:1.6; }
-    header { text-align:center; padding:20px 0; background-color:#111; border-bottom:1px solid #333; }
-    header img { width:120px; }
-    header h1 { margin:10px 0 0; font-size:2rem; }
-    nav { text-align:center; margin-top:10px; }
-    nav a { color:#9ecfff; margin:0 10px; text-decoration:none; font-size:1.1rem; }
-    nav a:hover { text-decoration:underline; }
-    main { max-width:800px; margin:0 auto; padding:40px 20px; }
-    footer { text-align:center; padding:20px; border-top:1px solid #333; background-color:#111; color:#777; font-size:0.9rem; }
-    a { color:#9ecfff; }
-  </style>
+  <meta name="description" content="Contact Godmode - Get in touch with our team for support, feedback, or questions about our AI-powered fitness app.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <img src="godmode-logo.svg" alt="Godmode Logo">
-    <h1>Contact & Feedback</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="nav-brand">
+        <img src="godmode-logo.svg" alt="Godmode Logo" class="logo">
+        <span class="brand-text">Godmode</span>
+      </div>
+      <nav class="nav">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="privacy.html" class="nav-link">Privacy</a></li>
+          <li><a href="terms.html" class="nav-link">Terms</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
   </header>
-  <main>
-    <p>If you have any questions, suggestions or feedback about Godmode, we'd love to hear from you.</p>
-    <p>You can send us feedback via the in-app feedback button or email us at <a href="mailto:support@godmodeapp.vercel.app">support@godmodeapp.vercel.app</a>.</p>
-    <p>We aim to respond to inquiries within 2 business days.</p>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Contact &amp; Feedback</h1>
+      <p>Get in touch with our team for support and questions</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="contact-page">
+    <div class="container">
+      <header class="contact-header">
+        <h1>Contact & Support</h1>
+        <p>We'd love to hear from you. Your input helps us improve and create a better fitness experience for everyone.</p>
+      </header>
+
+      <section class="contact-content">
+        <div class="contact-section">
+          <h2>Get in Touch</h2>
+          <p>For questions, suggestions, or feedback about Godmode, please reach out to us:</p>
+          
+          <div class="contact-info">
+            <div class="contact-item">
+              <h3>Email Support</h3>
+              <p><a href="mailto:support@godmodeapp.vercel.app">support@godmodeapp.vercel.app</a></p>
+              <p class="contact-meta">Response time: Within 2 business days</p>
+            </div>
+            
+            <div class="contact-item">
+              <h3>Support Hours</h3>
+              <p>Monday - Friday<br>9:00 AM - 6:00 PM CET</p>
+            </div>
+          </div>
+          
+          <div class="contact-actions">
+            <a href="mailto:support@godmodeapp.vercel.app" class="btn btn-primary">Send Email</a>
+            <a href="mailto:support@godmodeapp.vercel.app?subject=Bug Report" class="btn btn-secondary">Report Bug</a>
+          </div>
+        </div>
+
+        <div class="contact-section">
+          <h2>Frequently Asked Questions</h2>
+          
+          <div class="faq-item">
+            <h3>How do I cancel my subscription?</h3>
+            <p>You can cancel your subscription at any time through your account settings in the app or by contacting our support team.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>Is my workout data secure?</h3>
+            <p>Yes, we take data security seriously. Read our <a href="privacy.html">Privacy Policy</a> for detailed information about how we protect your data.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>Can I sync with other fitness apps?</h3>
+            <p>Currently, Godmode works as a standalone app. We're exploring integrations with popular fitness platforms for future updates.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>Do you offer refunds?</h3>
+            <p>Refund policies depend on your platform (App Store/Google Play). Contact us for assistance with refund requests.</p>
+          </div>
+        </div>
+
+        <div class="contact-section">
+          <h2>Bug Reports</h2>
+          <p>Encountered a problem with the app? Help us improve by reporting bugs or technical issues. Please include:</p>
+          <ul>
+            <li>Device type and operating system version</li>
+            <li>App version number</li>
+            <li>Steps to reproduce the issue</li>
+            <li>Screenshots if applicable</li>
+          </ul>
+        </div>
+      </section>
+    </div>
   </main>
-  <footer>
-    <p>&copy; 2025 Godmode. All rights reserved.</p>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Godmode. All rights reserved. We're here to help you succeed.</p>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
