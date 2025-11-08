@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Godmode - AI Fitness Companion</title>
-  <meta name="description" content="Transform your fitness journey with Godmode, the AI-powered fitness companion.">
+  <title>Godmode - AI Fitness</title>
+  <meta name="description" content="Power. Precision. Progress.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -24,17 +24,32 @@
       position: fixed;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
-      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif;
+      background: #000000;
+      color: #FFFFFF;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 10vh 5vw 12vh;
+      position: relative;
+    }
+
+    /* Subtle vignette for depth */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .container {
@@ -43,55 +58,74 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      max-width: 400px;
+      max-width: 500px;
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
 
     .logo {
-      width: 140px;
-      height: 140px;
-      margin-bottom: 30px;
-      animation: fadeInScale 0.8s ease-out;
+      width: min(35vh, 280px);
+      height: min(35vh, 280px);
+      margin-bottom: 24px;
+      filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.15));
+      animation: logoAppear 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
     .app-name {
-      font-size: 42px;
-      font-weight: 100;
-      letter-spacing: 8px;
-      margin-bottom: 50px;
-      color: #F5F7FA;
-      text-transform: uppercase;
-      animation: fadeIn 1s ease-out 0.2s both;
+      font-size: clamp(36px, 8vw, 52px);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+      color: #FFFFFF;
+      opacity: 0.9;
+      animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
     }
 
-    .download-button {
-      display: inline-block;
-      background: #ffffff;
-      color: #0a0e27;
-      text-decoration: none;
-      padding: 16px 40px;
-      border-radius: 12px;
-      font-size: 16px;
+    .tagline {
+      font-size: clamp(14px, 3.5vw, 16px);
       font-weight: 400;
-      letter-spacing: 0.5px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
-      animation: fadeIn 1s ease-out 0.4s both;
+      letter-spacing: 0.01em;
+      margin-bottom: 48px;
+      color: #B3B3B3;
+      animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
     }
 
-    .download-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 30px rgba(255, 255, 255, 0.25);
+    .app-store-badge {
+      display: inline-block;
+      width: min(65vw, 180px);
+      height: auto;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
     }
 
-    .download-button:active {
-      transform: translateY(0);
+    .app-store-badge:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
     }
 
-    @keyframes fadeIn {
+    .app-store-badge:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
+
+    @keyframes logoAppear {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: scale(0.9);
+        filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+        filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.15));
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
       }
       to {
         opacity: 1;
@@ -99,80 +133,105 @@
       }
     }
 
-    @keyframes fadeInScale {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
+    /* Responsive adjustments */
     @media (max-width: 480px) {
+      body {
+        padding: 8vh 6vw 10vh;
+      }
+
       .logo {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 25px;
+        width: min(32vh, 200px);
+        height: min(32vh, 200px);
+        margin-bottom: 20px;
       }
 
       .app-name {
-        font-size: 36px;
-        letter-spacing: 6px;
+        margin-bottom: 10px;
+      }
+
+      .tagline {
         margin-bottom: 40px;
       }
 
-      .download-button {
-        padding: 14px 35px;
-        font-size: 15px;
+      .app-store-badge {
+        width: min(70vw, 160px);
       }
     }
 
     @media (max-width: 360px) {
       .logo {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 20px;
+        width: min(28vh, 160px);
+        height: min(28vh, 160px);
+        margin-bottom: 18px;
       }
 
-      .app-name {
-        font-size: 32px;
-        letter-spacing: 5px;
-        margin-bottom: 35px;
+      .tagline {
+        margin-bottom: 36px;
       }
 
-      .download-button {
-        padding: 12px 30px;
-        font-size: 14px;
+      .app-store-badge {
+        width: min(72vw, 150px);
       }
     }
 
     @media (orientation: landscape) and (max-height: 600px) {
+      body {
+        padding: 6vh 5vw 6vh;
+      }
+
       .logo {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 15px;
+        width: min(28vh, 140px);
+        height: min(28vh, 140px);
+        margin-bottom: 12px;
       }
 
       .app-name {
-        font-size: 28px;
-        letter-spacing: 4px;
-        margin-bottom: 20px;
+        margin-bottom: 8px;
       }
 
-      .download-button {
-        padding: 10px 25px;
-        font-size: 13px;
+      .tagline {
+        margin-bottom: 20px;
+        font-size: clamp(12px, 3vw, 14px);
+      }
+
+      .app-store-badge {
+        width: min(45vw, 140px);
+      }
+    }
+
+    @media (orientation: landscape) and (max-height: 450px) {
+      .logo {
+        width: min(24vh, 100px);
+        height: min(24vh, 100px);
+        margin-bottom: 8px;
+      }
+
+      .tagline {
+        margin-bottom: 16px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="godmode-logo.svg" alt="Godmode Logo" class="logo">
+    <img src="godmode-logo.svg" alt="Godmode" class="logo">
     <h1 class="app-name">Godmode</h1>
-    <a href="https://apps.apple.com/app/id6748595918" class="download-button">Download on App Store</a>
+    <p class="tagline">Power. Precision. Progress.</p>
+    <a href="https://apps.apple.com/app/id6748595918" target="_blank" rel="noopener noreferrer">
+      <svg class="app-store-badge" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+        <title>Download on the App Store</title>
+        <g fill="none" fill-rule="evenodd">
+          <!-- Badge background -->
+          <rect width="120" height="40" rx="5" fill="#FFFFFF"/>
+          <!-- Apple logo -->
+          <path d="M24.769 20.301c-.023-2.412 1.966-3.573 2.056-3.631-1.12-1.638-2.863-1.863-3.484-1.889-1.483-.15-2.894.874-3.646.874-.752 0-1.914-.852-3.146-.828-1.619.023-3.111.94-3.945 2.389-1.682 2.912-.43 7.23 1.209 9.592.802 1.155 1.758 2.452 3.014 2.407 1.209-.048 1.666-.781 3.127-.781 1.461 0 1.87.781 3.145.757 1.298-.023 2.139-1.179 2.941-2.335.927-1.338 1.308-2.633 1.331-2.7-.029-.012-2.555-.98-2.579-3.885m-2.354-6.952c.667-.808 1.117-1.929 0.994-3.046-.96.039-2.124.64-2.813 1.447-.617.715-1.157 1.856-1.012 2.952 1.07.083 2.164-.544 2.831-1.353" fill="#000000"/>
+          <!-- Download on the text -->
+          <text x="38" y="13" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="8" font-weight="400" fill="#000000">Download on the</text>
+          <!-- App Store text -->
+          <text x="38" y="28" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="16" font-weight="500" fill="#000000">App Store</text>
+        </g>
+      </svg>
+    </a>
   </div>
 </body>
 </html>
