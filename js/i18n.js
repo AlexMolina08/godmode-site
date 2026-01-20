@@ -53,7 +53,7 @@ const i18n = {
 
     /**
      * Translates a key with optional variable interpolation
-     * Usage: i18n.t('vip.unlocked_msg', { count: 10 })
+     * Usage: i18n.t('vip.ambassador_body_passes', { count: 10 })
      */
     t(key, variables = {}) {
         if (!this.isLoaded) return key;

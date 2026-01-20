@@ -373,32 +373,43 @@ body::before {
 /* Invitation Header (Editorial) */
 .invitation-header {
     text-align: center;
-    margin-bottom: 24px;
-    padding: 12px 0 0 0;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
 
-.invitation-header h1 {
-    font-size: 28px;
+.invitation-title {
+    font-size: 24px;
     line-height: 1.2;
     font-weight: 700;
     color: var(--text-primary);
-    margin: 0 auto 12px auto;
-    letter-spacing: -0.02em;
-    max-width: 14em;
-    /* Force wrap for editorial look */
+    margin: 0;
+    letter-spacing: -0.01em;
+    max-width: 20ch;
 }
 
-.invitation-header p {
-    font-size: 15px;
-    line-height: 1.5;
+.invitation-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.55;
     color: var(--text-secondary);
     max-width: 320px;
+    width: 100%;
     margin: 0 auto;
 }
 
-.invitation-header span {
-    color: var(--gold);
-    font-weight: 600;
+.invitation-body p {
+    margin: 0;
+}
+
+.invitation-signoff {
+    color: var(--text-primary);
+    opacity: 0.85;
 }
 
 /* Codes Section */

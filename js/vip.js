@@ -123,7 +123,7 @@ function renderAmbassador(ambassador) {
     const codeList = document.getElementById('code-list');
 
     const followerPassesTitle = document.getElementById('follower-passes-title');
-    const unlockedMsg = document.getElementById('unlocked-msg');
+    const passesMsg = document.getElementById('ambassador-passes');
 
     if (headerTitle) headerTitle.textContent = i18n.t('vip.ambassador_access', { name: ambassador.name });
     if (initials) initials.textContent = ambassador.name.substring(0, 2).toUpperCase();
@@ -131,7 +131,7 @@ function renderAmbassador(ambassador) {
     if (cardId) cardId.textContent = `${i18n.t('vip.id')}: ${ambassador.vip_code.split('-').pop().substring(0, 6)}`;
 
     if (followerPassesTitle) followerPassesTitle.textContent = i18n.t('vip.follower_passes', { count: ambassador.community_codes.length });
-    if (unlockedMsg) unlockedMsg.innerHTML = i18n.t('vip.unlocked_msg', { count: `<span>${ambassador.community_codes.length} one-month passes</span>` });
+    if (passesMsg) passesMsg.textContent = i18n.t('vip.ambassador_body_passes', { count: ambassador.community_codes.length });
 
     if (codeList) {
         codeList.innerHTML = '';
