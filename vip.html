@@ -4,944 +4,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-    <meta name="theme-color" content="#050505">
+    <meta name="theme-color" content="#070809">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Godmode VIP Access</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-    <style>
-        /* ============================================
-           ULTRA-PREMIUM VIP CARD EXPERIENCE
-           Mobile Portrait First
-           ============================================ */
+    <title>Godmode Creator VIP Pass</title>
 
-        :root {
-            /* Surfaces - Deep Blacks */
-            --color-base: #050505;
-            --color-elevated-1: #0a0a0a;
-            --color-elevated-2: #111111;
-            --color-elevated-3: #1a1a1a;
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/vip.css">
 
-            /* Brand Accents */
-            --color-accent: #00F0FF;
-            --color-accent-glow: rgba(0, 240, 255, 0.4);
-            --color-gold: #D4AF37;
-            --color-gold-light: #F4E4BC;
-            --color-gold-glow: rgba(212, 175, 55, 0.3);
-
-            /* Text */
-            --color-text-primary: #FFFFFF;
-            --color-text-secondary: #888888;
-            --color-text-tertiary: #555555;
-
-            /* Borders */
-            --color-border: rgba(255, 255, 255, 0.08);
-            --color-border-highlight: rgba(255, 255, 255, 0.15);
-
-            /* Typography */
-            --font-display: 'Cinzel', serif;
-            --font-body: 'SF Pro Text', 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-
-            /* Spacing */
-            --safe-area-top: env(safe-area-inset-top, 0px);
-            --safe-area-bottom: env(safe-area-inset-bottom, 0px);
-
-            /* Radii */
-            --radius-card: 20px;
-            --radius-surface: 14px;
-            --radius-pill: 999px;
-
-            /* Motion */
-            --spring-ease: cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html,
-        body {
-            height: 100%;
-            overflow: hidden;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background: var(--color-base);
-            color: var(--color-text-primary);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overscroll-behavior: none;
-            position: relative;
-        }
-
-        body::before,
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        body::before {
-            background:
-                radial-gradient(circle at 20% -10%, rgba(212, 175, 55, 0.12), transparent 55%),
-                radial-gradient(circle at 80% 10%, rgba(0, 240, 255, 0.08), transparent 50%),
-                linear-gradient(180deg, #090909 0%, #050505 100%);
-        }
-
-        body::after {
-            background: radial-gradient(circle at 50% 120%, rgba(255, 255, 255, 0.05), transparent 60%);
-            opacity: 0.6;
-        }
-
-        /* ============================================
-           APP CONTAINER
-           ============================================ */
-        .app {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            padding-top: var(--safe-area-top);
-            padding-bottom: var(--safe-area-bottom);
-            overflow: hidden;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ============================================
-           HERO SECTION - VIP CARD
-           ============================================ */
-        .hero-section {
-            flex-shrink: 0;
-            padding: 28px 20px 18px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 18px;
-            width: 100%;
-        }
-
-        .ambassador-badge {
-            font-family: var(--font-display);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--color-gold);
-            padding: 8px 16px;
-            border-radius: var(--radius-pill);
-            background: rgba(212, 175, 55, 0.12);
-            border: 1px solid rgba(212, 175, 55, 0.12);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
-        }
-
-        /* 3D Card Container */
-        .card-perspective {
-            perspective: 1200px;
-            width: 100%;
-            max-width: 360px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .vip-card {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1.586;
-            background: linear-gradient(160deg, rgba(26, 26, 26, 0.96) 0%, rgba(10, 10, 10, 0.94) 55%, rgba(5, 5, 5, 0.98) 100%);
-            border-radius: var(--radius-card);
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transform-style: preserve-3d;
-            transition: transform 0.35s var(--spring-ease), box-shadow 0.35s var(--spring-ease);
-            will-change: transform;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow:
-                0 28px 48px -26px rgba(0, 0, 0, 0.85),
-                0 1px 0 rgba(255, 255, 255, 0.06) inset,
-                0 -18px 30px rgba(0, 0, 0, 0.45) inset;
-            backdrop-filter: blur(16px);
-        }
-
-        /* Ambient highlight */
-        .vip-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, transparent 45%),
-                radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.12), transparent 55%);
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.7;
-        }
-
-        @keyframes shimmer {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        /* Subtle shimmer sweep */
-        .vip-card::after {
-            content: '';
-            position: absolute;
-            inset: -20% -40%;
-            background: linear-gradient(115deg,
-                    transparent 35%,
-                    rgba(212, 175, 55, 0.08) 45%,
-                    rgba(255, 255, 255, 0.16) 50%,
-                    rgba(212, 175, 55, 0.08) 55%,
-                    transparent 65%);
-            transform: translateX(-120%);
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .vip-card.shimmer::after {
-            animation: shimmer 2.2s var(--spring-ease);
-            opacity: 0.7;
-        }
-
-        /* Card floating animation */
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px) rotateX(0deg) rotateY(0deg);
-            }
-
-            50% {
-                transform: translateY(-4px) rotateX(0deg) rotateY(0deg);
-            }
-        }
-
-        .vip-card.floating {
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-            gap: 16px;
-        }
-
-        .card-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            min-width: 0;
-        }
-
-        .card-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        /* Fixed Logo Container */
-        .card-logo {
-            width: 46px;
-            height: 46px;
-            flex: 0 0 46px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background: rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .card-logo img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: contain;
-            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
-        }
-
-        .card-label {
-            font-family: var(--font-display);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--color-text-primary);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            white-space: nowrap;
-        }
-
-        .card-type {
-            text-align: right;
-            line-height: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 4px;
-        }
-
-        .card-type-year {
-            font-family: var(--font-display);
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            color: var(--color-text-tertiary);
-        }
-
-        .card-type-vip {
-            font-family: var(--font-display);
-            font-size: 15px;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            color: var(--color-gold);
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Updated Redeem Button area */
-        .card-body {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex: 1;
-        }
-
-        .card-code {
-            font-family: var(--font-body);
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            color: #1b1406;
-            background: linear-gradient(135deg, #F4E4BC 0%, #D4AF37 55%, #B4941F 100%);
-            padding: 14px 30px;
-            border-radius: var(--radius-pill);
-            cursor: pointer;
-            transition: transform 0.35s var(--spring-ease), box-shadow 0.35s var(--spring-ease), filter 0.35s var(--spring-ease);
-            box-shadow:
-                0 14px 24px -18px rgba(0, 0, 0, 0.8),
-                0 1px 0 rgba(255, 255, 255, 0.6) inset,
-                0 -10px 18px rgba(180, 140, 30, 0.35) inset;
-            text-transform: uppercase;
-            user-select: none;
-            touch-action: manipulation;
-        }
-
-        .card-code:active {
-            transform: scale(0.97);
-            box-shadow:
-                0 8px 16px -14px rgba(0, 0, 0, 0.8),
-                0 1px 0 rgba(255, 255, 255, 0.5) inset;
-        }
-
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-            gap: 12px;
-        }
-
-        .card-holder {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .holder-label {
-            font-size: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-text-tertiary);
-        }
-
-        .card-name {
-            font-family: 'OCR A Std', 'Monaco', monospace;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        .tap-hint {
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--color-gold);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            cursor: pointer;
-            padding: 8px 14px;
-            background: rgba(212, 175, 55, 0.12);
-            border-radius: 10px;
-            border: 1px solid rgba(212, 175, 55, 0.12);
-            transition: transform 0.35s var(--spring-ease), box-shadow 0.35s var(--spring-ease), background 0.35s var(--spring-ease);
-            box-shadow:
-                0 10px 18px -14px rgba(0, 0, 0, 0.7),
-                0 1px 0 rgba(255, 255, 255, 0.12) inset;
-            user-select: none;
-            touch-action: manipulation;
-        }
-
-        .tap-hint:active {
-            transform: scale(0.97);
-            background: rgba(212, 175, 55, 0.2);
-            box-shadow:
-                0 6px 12px -12px rgba(0, 0, 0, 0.7),
-                0 1px 0 rgba(255, 255, 255, 0.1) inset;
-        }
-
-        .tap-hint.copied {
-            background: rgba(212, 175, 55, 0.3);
-            border-color: rgba(212, 175, 55, 0.6);
-            box-shadow: 0 0 15px var(--color-gold-glow);
-        }
-
-        /* ============================================
-           INVITE CODES SECTION
-           ============================================ */
-        .codes-section {
-            flex: 1;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            padding: 8px 20px 20px;
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-            position: relative;
-        }
-
-        .section-title {
-            font-family: var(--font-display);
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--color-text-secondary);
-            background: rgba(10, 10, 10, 0.9);
-            padding: 6px 14px;
-            border-radius: var(--radius-pill);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            z-index: 1;
-        }
-
-        .section-line {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 50%;
-            height: 1px;
-            background: linear-gradient(90deg,
-                    transparent 0%,
-                    var(--color-border) 20%,
-                    var(--color-border) 80%,
-                    transparent 100%);
-            z-index: 0;
-        }
-
-        .codes-grid {
-            flex: 1;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            padding-bottom: 30px;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .codes-grid::-webkit-scrollbar {
-            display: none;
-        }
-
-        .code-capsule {
-            position: relative;
-            background: rgba(18, 18, 18, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: var(--radius-surface);
-            padding: 14px 12px;
-            cursor: pointer;
-            transition: transform 0.35s var(--spring-ease), box-shadow 0.35s var(--spring-ease), background 0.35s var(--spring-ease);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            gap: 6px;
-            box-shadow:
-                0 14px 20px -18px rgba(0, 0, 0, 0.8),
-                0 1px 0 rgba(255, 255, 255, 0.05) inset;
-            user-select: none;
-            touch-action: manipulation;
-        }
-
-        .code-capsule::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, transparent 55%);
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        .code-capsule:active {
-            transform: scale(0.97);
-            box-shadow:
-                0 10px 16px -16px rgba(0, 0, 0, 0.8),
-                0 1px 0 rgba(255, 255, 255, 0.04) inset;
-        }
-
-        .code-capsule.copied {
-            border-color: rgba(212, 175, 55, 0.6);
-            background: rgba(212, 175, 55, 0.1);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
-        }
-
-        .capsule-number {
-            position: absolute;
-            top: 6px;
-            left: 8px;
-            font-family: var(--font-display);
-            font-size: 8px;
-            color: var(--color-text-tertiary);
-        }
-
-        .capsule-code {
-            font-family: 'SF Mono', 'Monaco', monospace;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            color: var(--color-text-primary);
-            opacity: 0.9;
-        }
-
-        .code-capsule.copied .capsule-code {
-            color: var(--color-gold);
-            font-weight: 700;
-        }
-
-        .capsule-status {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-text-tertiary);
-        }
-
-        .code-capsule.copied .capsule-status {
-            color: var(--color-gold);
-        }
-
-        @media (hover: hover) {
-            .code-capsule:hover {
-                background: rgba(24, 24, 24, 0.82);
-                border-color: rgba(255, 255, 255, 0.12);
-            }
-
-            .card-code:hover {
-                filter: brightness(1.02);
-            }
-
-            .tap-hint:hover {
-                background: rgba(212, 175, 55, 0.16);
-            }
-        }
-
-        @media (min-width: 420px) {
-            .codes-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 360px) {
-            .vip-card {
-                padding: 20px;
-            }
-
-            .card-logo {
-                width: 40px;
-                height: 40px;
-                flex: 0 0 40px;
-            }
-
-            .card-label {
-                font-size: 11px;
-            }
-
-            .card-code {
-                font-size: 12px;
-                padding: 12px 24px;
-            }
-        }
-
-        /* ============================================
-           LOADING & ERROR STATES
-           ============================================ */
-        .loading-state,
-        .error-state {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            padding: 40px;
-        }
-
-        .loading-spinner {
-            width: 32px;
-            height: 32px;
-            border: 2px solid var(--color-border);
-            border-top-color: var(--color-accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .loading-text,
-        .error-text {
-            font-size: 14px;
-            color: var(--color-text-secondary);
-            text-align: center;
-        }
-
-        .error-text {
-            color: #ff6b6b;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        /* ============================================
-           REDUCED MOTION
-           ============================================ */
-        @media (prefers-reduced-motion: reduce) {
-            .vip-card {
-                animation: none !important;
-                transition: none !important;
-            }
-
-            .vip-card::after {
-                animation: none !important;
-            }
-        }
-    </style>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-    <div class="app">
-        <!-- Loading State -->
-        <div id="loading" class="loading-state">
-            <div class="loading-spinner"></div>
-            <p class="loading-text">Loading your VIP access...</p>
-        </div>
 
-        <!-- Error State -->
-        <div id="error" class="error-state hidden">
-            <p class="error-text"></p>
-        </div>
+    <div class="max-w-container">
+        <div class="main-content">
 
-        <!-- Main Content -->
-        <div id="content" class="hidden">
-            <!-- Hero Section - VIP Card -->
-            <section class="hero-section">
-                <div class="ambassador-badge" id="ambassador-badge">VIP Access</div>
+            <!-- Header Pill -->
+            <div class="header-pill-container">
+                <div class="header-pill">
+                    <span id="creator-name-header">Creator Access</span>
+                </div>
+            </div>
 
-                <div class="card-perspective">
-                    <div class="vip-card floating" id="vip-card">
-                        <div class="card-header">
-                            <div class="card-left">
-                                <div class="card-logo">
-                                    <img src="assets/godmode-logo.svg" alt="Godmode Logo">
-                                </div>
-                                <div class="card-label">GODMODE</div>
-                            </div>
-                            <div class="card-type">
-                                <span class="card-type-year">1 YEAR</span>
-                                <span class="card-type-vip">VIP</span>
+            <!-- VIP Pass Card -->
+            <div class="vip-card-wrapper">
+                <div class="card-glow"></div>
+
+                <div class="vip-card" id="vip-card">
+                    <div class="card-vignette"></div>
+
+                    <!-- Top Row -->
+                    <div class="card-top">
+                        <div class="card-brand">GODMODE</div>
+                        <div class="card-badge">
+                            <div class="badge-dot"></div>
+                            <span class="badge-text">VIP • 1 YEAR</span>
+                        </div>
+                    </div>
+
+                    <!-- Center Hero -->
+                    <div class="card-center">
+                        <div class="center-glow"></div>
+                        <svg class="card-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <span class="card-title">Creator Pass</span>
+                    </div>
+
+                    <!-- Bottom Identity Strip -->
+                    <div class="card-bottom">
+                        <div class="card-identity">
+                            <div class="identity-avatar" id="card-initials">--</div>
+                            <div class="identity-info">
+                                <span class="identity-name" id="card-name">--</span>
+                                <span class="identity-desc">Yearly access unlocked</span>
                             </div>
                         </div>
 
-                        <div class="card-body">
-                            <div class="card-code" id="vip-code" onclick="copyVipCode()">
-                                REDEEM
-                            </div>
-                        </div>
+                        <div class="card-divider"></div>
 
-                        <div class="card-footer">
-                            <div class="card-holder">
-                                <span class="holder-label">Member</span>
-                                <div class="card-name" id="card-name">MEMBER</div>
-                            </div>
-                            <div class="tap-hint" id="tap-hint" onclick="copyVipCode()">TAP TO COPY</div>
+                        <div class="card-footer-info">
+                            <span>Reserved for this link</span>
+                            <span id="card-id">ID: ------</span>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <!-- Invite Codes Section -->
-            <section class="codes-section">
-                <div class="section-header">
-                    <span class="section-title">Share These Codes</span>
-                    <div class="section-line"></div>
+            <!-- Primary CTA -->
+            <div class="cta-section">
+                <button class="redeem-btn" id="redeem-btn">
+                    <span>Redeem 1-Year Access</span>
+                    <i data-lucide="external-link" class="btn-icon"></i>
+                    <div class="shine"></div>
+                </button>
+                <span class="cta-subtitle">Copies code and opens App Store redemption.</span>
+            </div>
+
+            <!-- Message Block -->
+            <div class="message-block">
+                <h3>You’ve been invited to Creator Access.</h3>
+                <p>You unlocked 1 year of Godmode. You also get <span>10 one-month passes</span> to share with people
+                    who’ll actually use it.</p>
+            </div>
+
+            <!-- Follower Passes Section -->
+            <div class="codes-section">
+                <div class="codes-header">
+                    <div class="codes-header-left">
+                        <h2>Follower Passes (10)</h2>
+                        <span>Each code unlocks 1 month.</span>
+                    </div>
+                    <button class="share-all-btn" id="share-all-btn">
+                        <i data-lucide="share" style="width: 14px; height: 14px;"></i>
+                        <span>Share all</span>
+                    </button>
                 </div>
 
-                <div class="codes-grid" id="codes-grid">
-                    <!-- Populated via JS -->
+                <!-- Codes List -->
+                <div class="code-list" id="code-list">
+                    <!-- Dynamic Rows -->
                 </div>
-            </section>
+            </div>
+
+            <!-- Footer -->
+            <footer class="site-footer">
+                <p class="footer-support">Having trouble? Contact support.</p>
+                <p class="footer-copyright">Godmode © 2026</p>
+            </footer>
+
         </div>
     </div>
 
-    <script>
-        // ============================================
-        // STATE
-        // ============================================
-        let ambassadorData = null;
-        let tiltEnabled = true;
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i data-lucide="check" class="toast-icon" style="width: 14px; height: 14px;"></i>
+            <span class="toast-message">Copied to clipboard</span>
+        </div>
+    </div>
 
-        // ============================================
-        // INITIALIZATION
-        // ============================================
-        async function init() {
-            const params = new URLSearchParams(window.location.search);
-            const id = params.get('id');
-
-            if (!id) {
-                showError('No VIP access ID provided.');
-                return;
-            }
-
-            try {
-                const response = await fetch('./ambassadors.json');
-                if (!response.ok) throw new Error('Failed to load data.');
-
-                const data = await response.json();
-                ambassadorData = data[id.toLowerCase()];
-
-                if (!ambassadorData) {
-                    showError('VIP access not found.');
-                    return;
-                }
-
-                renderContent();
-                initTiltEffect();
-                triggerShimmer();
-            } catch (err) {
-                showError('Error loading VIP data.');
-                console.error(err);
-            }
-        }
-
-        // ============================================
-        // RENDERING
-        // ============================================
-        function renderContent() {
-            document.getElementById('loading').classList.add('hidden');
-            document.getElementById('content').classList.remove('hidden');
-
-            // Update badge and name
-            document.getElementById('ambassador-badge').textContent = ambassadorData.name + "'s VIP Access";
-            document.getElementById('card-name').textContent = ambassadorData.name.toUpperCase();
-
-            // Render invite codes
-            const grid = document.getElementById('codes-grid');
-            grid.innerHTML = '';
-
-            ambassadorData.community_codes.forEach((code, index) => {
-                const capsule = document.createElement('div');
-                capsule.className = 'code-capsule';
-                capsule.onclick = () => copyCode(capsule, code);
-
-                capsule.innerHTML = `
-                    <div class="capsule-number">${String(index + 1).padStart(2, '0')}</div>
-                    <div class="capsule-code">${code}</div>
-                    <div class="capsule-status">1 Month Access</div>
-                `;
-
-                grid.appendChild(capsule);
-            });
-        }
-
-        // ============================================
-        // COPY FUNCTIONALITY
-        // ============================================
-        function copyVipCode() {
-            const tapHint = document.getElementById('tap-hint');
-            const code = ambassadorData.vip_code;
-
-            navigator.clipboard.writeText(code).then(() => {
-                const originalText = tapHint.textContent;
-                tapHint.textContent = '✓ COPIED';
-                tapHint.classList.add('copied');
-                triggerHaptic();
-
-                setTimeout(() => {
-                    tapHint.textContent = originalText;
-                    tapHint.classList.remove('copied');
-                }, 1500);
-            });
-        }
-
-        function copyCode(element, code) {
-            navigator.clipboard.writeText(code).then(() => {
-                // Remove copied state from all capsules
-                document.querySelectorAll('.code-capsule').forEach(el => {
-                    el.classList.remove('copied');
-                });
-
-                element.classList.add('copied');
-                triggerHaptic();
-
-                setTimeout(() => {
-                    element.classList.remove('copied');
-                }, 1500);
-            });
-        }
-
-        function triggerHaptic() {
-            if ('vibrate' in navigator) {
-                navigator.vibrate(10);
-            }
-        }
-
-        // ============================================
-        // 3D TILT EFFECT
-        // ============================================
-        function initTiltEffect() {
-            const card = document.getElementById('vip-card');
-            const perspective = card.parentElement;
-
-            // Touch-based tilt
-            let isDragging = false;
-            let startX, startY;
-
-            perspective.addEventListener('touchstart', (e) => {
-                if (!tiltEnabled) return;
-                isDragging = true;
-                startX = e.touches[0].clientX;
-                startY = e.touches[0].clientY;
-                card.classList.remove('floating');
-            }, { passive: true });
-
-            perspective.addEventListener('touchmove', (e) => {
-                if (!isDragging || !tiltEnabled) return;
-
-                const rect = perspective.getBoundingClientRect();
-                const x = e.touches[0].clientX - rect.left;
-                const y = e.touches[0].clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = ((y - centerY) / centerY) * -10;
-                const rotateY = ((x - centerX) / centerX) * 10;
-
-                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            }, { passive: true });
-
-            perspective.addEventListener('touchend', () => {
-                isDragging = false;
-                card.style.transform = '';
-                setTimeout(() => {
-                    card.classList.add('floating');
-                }, 150);
-            }, { passive: true });
-
-            // Mouse-based tilt for testing
-            perspective.addEventListener('mousemove', (e) => {
-                if (!tiltEnabled) return;
-
-                const rect = perspective.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = ((y - centerY) / centerY) * -8;
-                const rotateY = ((x - centerX) / centerX) * 8;
-
-                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                card.classList.remove('floating');
-            });
-
-            perspective.addEventListener('mouseleave', () => {
-                card.style.transform = '';
-                card.classList.add('floating');
-            });
-        }
-
-        // ============================================
-        // SHIMMER EFFECT
-        // ============================================
-        function triggerShimmer() {
-            const card = document.getElementById('vip-card');
-
-            // Initial shimmer after load
-            setTimeout(() => {
-                card.classList.add('shimmer');
-                setTimeout(() => card.classList.remove('shimmer'), 2000);
-            }, 500);
-
-            // Periodic shimmer
-            setInterval(() => {
-                card.classList.add('shimmer');
-                setTimeout(() => card.classList.remove('shimmer'), 2000);
-            }, 8000);
-        }
-
-        // ============================================
-        // ERROR HANDLING
-        // ============================================
-        function showError(message) {
-            document.getElementById('loading').classList.add('hidden');
-            const errorEl = document.getElementById('error');
-            errorEl.querySelector('.error-text').textContent = message;
-            errorEl.classList.remove('hidden');
-        }
-
-        // ============================================
-        // START
-        // ============================================
-        window.addEventListener('DOMContentLoaded', init);
-    </script>
+    <!-- Logic -->
+    <script src="js/vip.js"></script>
 </body>
 
 </html>
