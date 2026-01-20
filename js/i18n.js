@@ -100,6 +100,8 @@ const i18n = {
                 } else if (el.hasAttribute('data-i18n-attr')) {
                     const attr = el.getAttribute('data-i18n-attr');
                     el.setAttribute(attr, translation);
+                } else if (el.hasAttribute('data-i18n-html')) {
+                    el.innerHTML = translation;
                 } else {
                     el.textContent = translation;
                 }

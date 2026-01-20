@@ -31,6 +31,10 @@ body {
     overflow-x: hidden;
 }
 
+.text-gold {
+    color: var(--gold);
+}
+
 body::before {
     content: "";
     position: fixed;

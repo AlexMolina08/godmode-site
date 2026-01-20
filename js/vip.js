@@ -131,7 +131,7 @@ function renderAmbassador(ambassador) {
     if (cardId) cardId.textContent = `${i18n.t('vip.id')}: ${ambassador.vip_code.split('-').pop().substring(0, 6)}`;
 
     if (followerPassesTitle) followerPassesTitle.textContent = i18n.t('vip.follower_passes', { count: ambassador.community_codes.length });
-    if (passesMsg) passesMsg.textContent = i18n.t('vip.ambassador_body_passes', { count: ambassador.community_codes.length });
+    if (passesMsg) passesMsg.innerHTML = i18n.t('vip.ambassador_body_passes', { count: ambassador.community_codes.length });
 
     if (codeList) {
         codeList.innerHTML = '';
