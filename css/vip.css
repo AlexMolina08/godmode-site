@@ -104,11 +104,11 @@ body::before {
 .card-glow {
     position: absolute;
     inset: 0;
-    background-color: var(--gold);
-    filter: blur(100px);
-    opacity: 0.05;
+    background: radial-gradient(circle, rgba(215, 180, 106, 0.25) 0%, rgba(215, 180, 106, 0.08) 45%, transparent 70%);
+    filter: blur(70px);
+    opacity: 0.12;
     border-radius: 9999px;
-    transform: scale(0.8) translateY(20px);
+    transform: scale(0.85) translateY(18px);
 }
 
 .vip-card {
@@ -121,11 +121,15 @@ body::before {
     flex-direction: column;
     justify-content: space-between;
     padding: 18px;
-    background: var(--card-bg);
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.06) 0%, rgba(20, 22, 27, 0.98) 52%, rgba(9, 10, 12, 0.92) 100%) padding-box,
+        linear-gradient(150deg, rgba(215, 180, 106, 0.5) 0%, rgba(184, 146, 63, 0.35) 45%, rgba(73, 52, 18, 0.95) 100%) border-box;
     box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 var(--highlight-white);
-    border: 1px solid var(--border-gold-15);
+        0 24px 60px rgba(0, 0, 0, 0.55),
+        0 0 28px rgba(215, 180, 106, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -18px 26px rgba(0, 0, 0, 0.45);
+    border: 3px solid transparent;
     transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
