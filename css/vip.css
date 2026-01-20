@@ -412,6 +412,25 @@ body::before {
     opacity: 0.85;
 }
 
+@media (max-width: 640px) {
+    .invitation-header {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .invitation-title {
+        font-size: 22px;
+        max-width: 24ch;
+    }
+
+    .invitation-body {
+        font-size: 15px;
+        line-height: 1.65;
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
 /* Codes Section */
 .codes-header {
     display: flex;
