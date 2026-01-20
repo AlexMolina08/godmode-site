@@ -1,6 +1,6 @@
 {
-  "antonio": {
-    "name": "Antonio",
+  "metachino": {
+    "name": "metachino",
     "vip_code": "HP787NM4AFNT47ATLA",
     "community_codes": [
       "XEWXA7NPTRA3XJTX6J",
@@ -13,54 +13,6 @@
       "EL784EWAATRYAM7XTL",
       "MXWTEW7A6TWHMYMTWN",
       "TWFXENWXKNYJE6MHFL"
-    ]
-  },
-  "ibai": {
-    "name": "Ibai",
-    "vip_code": "TJX4X683FRYWFXY8X7",
-    "community_codes": [
-      "LHKEKNHWETLFJEEFLH",
-      "4RNLALAMHTTXPLY3AK",
-      "KN6RRYKT3LR8MFNRLT",
-      "AF7N67L78NMYYYJLP4",
-      "8EXJHWME6AW4RR48RE",
-      "XATEKTY4WATTFJT7TN",
-      "PPYN87FKH43L34X8WR",
-      "NL6EJN7MYEPPYLJ4RH",
-      "A4NM6LKRTP34AHH4XL",
-      "T6KYHLFMHK7EP7F4M8"
-    ]
-  },
-  "midudev": {
-    "name": "MiduDev",
-    "vip_code": "8Y7WR8XRPXTKWYYWLL",
-    "community_codes": [
-      "E3RMFENL3KYTRPWL4A",
-      "AX4H68PHH3JXK76AWM",
-      "KNXM4XMTLK7KMY478L",
-      "MJR4WFK3EF4FLPJYL8",
-      "X74R7REK7T6XM3ETRP",
-      "EPLXF8LAN8R4HHJ8R6",
-      "6J6EW68466Y8TRXNFY",
-      "PRT7YPNNA36MNWMT4H",
-      "4LLJ7WJJEMKYPFEMM7",
-      "WJAJ664YLLL63LWARR"
-    ]
-  },
-  "metachino": {
-    "name": "Metachino",
-    "vip_code": "MWMJMLET6PLMNXLPKY",
-    "community_codes": [
-      "EWMJ4RKLKPTTL483PE",
-      "WHXTEFHYR3RLRYLKKJ",
-      "K4PMJ47AWM7WA3LL3T",
-      "THFFA7LL3HPPRH8K7P",
-      "K8XXE8TRLTJXRR6JLN",
-      "7FY6W7EMMW8N788YJ8",
-      "L4ELPPHFMAN4AKY8YP",
-      "3F7AXNT43K38L4T8AW",
-      "TWPTFF34WKF3L3E434",
-      "T77LWMPE7W4JYJEJ8R"
     ]
   }
 }
