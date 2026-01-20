@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#070809">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Godmode Creator VIP Pass</title>
+    <title data-i18n="vip.title">Godmode Creator VIP Pass</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/vip.css">
@@ -23,9 +23,7 @@
 
             <!-- Header Pill -->
             <div class="header-pill-container">
-                <div class="header-pill">
-                    <span id="creator-name-header">Creator Access</span>
-                </div>
+                <span id="creator-name-header" data-i18n="vip.creator_access">Creator Access</span>
             </div>
 
             <!-- VIP Pass Card -->
@@ -37,10 +35,10 @@
 
                     <!-- Top Row -->
                     <div class="card-top">
-                        <div class="card-brand">GODMODE</div>
+                        <div class="card-brand" data-i18n="common.godmode">GODMODE</div>
                         <div class="card-badge">
                             <div class="badge-dot"></div>
-                            <span class="badge-text">VIP • 1 YEAR</span>
+                            <span class="badge-text" data-i18n="vip.vip_1year">VIP • 1 YEAR</span>
                         </div>
                     </div>
 
@@ -48,7 +46,7 @@
                     <div class="card-center">
                         <div class="center-glow"></div>
                         <img src="assets/logo.png" alt="Godmode Logo" class="card-logo">
-                        <span class="card-title">Creator Pass</span>
+                        <span class="card-title" data-i18n="vip.creator_pass">Creator Pass</span>
                     </div>
 
                     <!-- Bottom Identity Strip -->
@@ -57,14 +55,15 @@
                             <div class="identity-avatar" id="card-initials">--</div>
                             <div class="identity-info">
                                 <span class="identity-name" id="card-name">--</span>
-                                <span class="identity-desc">Yearly access unlocked</span>
+                                <span class="identity-desc" data-i18n="vip.yearly_unlocked">Yearly access
+                                    unlocked</span>
                             </div>
                         </div>
 
                         <div class="card-divider"></div>
 
                         <div class="card-footer-info">
-                            <span>Reserved for this link</span>
+                            <span data-i18n="vip.reserved_link">Reserved for this link</span>
                             <span id="card-id">ID: ------</span>
                         </div>
                     </div>
@@ -74,17 +73,19 @@
             <!-- Primary CTA -->
             <div class="cta-section">
                 <button class="redeem-btn" id="redeem-btn">
-                    <span>Redeem 1-Year Access</span>
+                    <span data-i18n="vip.redeem_cta">Redeem 1-Year Access</span>
                     <i data-lucide="external-link" class="btn-icon"></i>
                     <div class="shine"></div>
                 </button>
-                <span class="cta-subtitle">Copies code and opens App Store redemption.</span>
+                <span class="cta-subtitle" data-i18n="vip.cta_subtitle">Copies code and opens App Store
+                    redemption.</span>
             </div>
 
             <!-- Message Block -->
             <div class="message-block">
-                <h3>You’ve been invited to Creator Access.</h3>
-                <p>You unlocked 1 year of Godmode. You also get <span>10 one-month passes</span> to share with people
+                <h3 data-i18n="vip.invited_msg">You’ve been invited to Creator Access.</h3>
+                <p id="unlocked-msg">You unlocked 1 year of Godmode. You also get <span>10 one-month passes</span> to
+                    share with people
                     who’ll actually use it.</p>
             </div>
 
@@ -92,12 +93,12 @@
             <div class="codes-section">
                 <div class="codes-header">
                     <div class="codes-header-left">
-                        <h2>Follower Passes (10)</h2>
-                        <span>Each code unlocks 1 month.</span>
+                        <h2 id="follower-passes-title">Follower Passes (10)</h2>
+                        <span data-i18n="vip.one_month_unlock">Each code unlocks 1 month.</span>
                     </div>
                     <button class="share-all-btn" id="share-all-btn">
                         <i data-lucide="share" style="width: 14px; height: 14px;"></i>
-                        <span>Share all</span>
+                        <span data-i18n="vip.share_all">Share all</span>
                     </button>
                 </div>
 
@@ -109,8 +110,8 @@
 
             <!-- Footer -->
             <footer class="site-footer">
-                <p class="footer-support">Having trouble? Contact support.</p>
-                <p class="footer-copyright">Godmode © 2026</p>
+                <p class="footer-support" data-i18n="vip.trouble">Having trouble? Contact support.</p>
+                <p class="footer-copyright" data-i18n="common.copyright">Godmode © 2026</p>
             </footer>
 
         </div>
@@ -120,11 +121,12 @@
     <div class="toast" id="toast">
         <div class="toast-content">
             <i data-lucide="check" class="toast-icon" style="width: 14px; height: 14px;"></i>
-            <span class="toast-message">Copied to clipboard</span>
+            <span class="toast-message" data-i18n="common.copied">Copied to clipboard</span>
         </div>
     </div>
 
     <!-- Logic -->
+    <script src="js/i18n.js"></script>
     <script src="js/vip.js"></script>
 </body>
 

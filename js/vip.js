@@ -39,7 +39,7 @@ async function copyToClipboard(text, successMessage) {
             window.navigator.vibrate(10);
         }
 
-        showToast(successMessage || 'Copied to clipboard');
+        showToast(successMessage || i18n.t('common.copied'));
         return true;
     } catch (err) {
         console.error('Copy failed', err);
@@ -49,10 +49,10 @@ async function copyToClipboard(text, successMessage) {
         textArea.select();
         try {
             document.execCommand('copy');
-            showToast(successMessage || 'Copied to clipboard');
+            showToast(successMessage || i18n.t('common.copied'));
             return true;
         } catch (err) {
-            showToast('Failed to copy');
+            showToast(i18n.t('common.failed_copy'));
             return false;
         } finally {
             document.body.removeChild(textArea);
@@ -74,7 +74,7 @@ async function handleRedeem() {
     btn.disabled = true;
 
     // 1. Copy Code
-    await copyToClipboard(currentAmbassador.vip_code, 'VIP code copied');
+    await copyToClipboard(currentAmbassador.vip_code, i18n.t('vip.vip_code_copied'));
 
     // 2. Simulate delay then open URL
     setTimeout(() => {
@@ -87,7 +87,7 @@ async function handleRedeem() {
 async function handleShareAll() {
     if (!currentAmbassador) return;
 
-    const shareText = `Godmode — 1-month passes\nRedeem link: https://godmode.app/redeem\n\n` +
+    const shareText = `${i18n.t('vip.share_text')}` +
         currentAmbassador.community_codes.map((code, i) =>
             `${(i + 1).toString().padStart(2, '0')} — ${code}`
         ).join('\n');
@@ -95,20 +95,20 @@ async function handleShareAll() {
     if (navigator.share) {
         try {
             await navigator.share({
-                title: 'Godmode Passes',
+                title: i18n.t('vip.share_title'),
                 text: shareText,
             });
         } catch (err) {
             console.log('Share cancelled or failed, falling back to copy');
-            copyToClipboard(shareText, 'All codes copied');
+            copyToClipboard(shareText, i18n.t('vip.all_codes_copied'));
         }
     } else {
-        copyToClipboard(shareText, 'All codes copied');
+        copyToClipboard(shareText, i18n.t('vip.all_codes_copied'));
     }
 }
 
 function handleCopyCode(code, index) {
-    copyToClipboard(code, `Code ${index + 1} copied`);
+    copyToClipboard(code, i18n.t('vip.code_index_copied', { index: index + 1 }));
 }
 
 // --- RENDERING ---
@@ -122,10 +122,16 @@ function renderAmbassador(ambassador) {
     const cardId = document.getElementById('card-id');
     const codeList = document.getElementById('code-list');
 
-    if (headerTitle) headerTitle.textContent = `${ambassador.name}’s Creator Access`;
+    const followerPassesTitle = document.getElementById('follower-passes-title');
+    const unlockedMsg = document.getElementById('unlocked-msg');
+
+    if (headerTitle) headerTitle.textContent = i18n.t('vip.ambassador_access', { name: ambassador.name });
     if (initials) initials.textContent = ambassador.name.substring(0, 2).toUpperCase();
     if (cardName) cardName.textContent = ambassador.name;
-    if (cardId) cardId.textContent = `ID: ${ambassador.vip_code.split('-').pop().substring(0, 6)}`;
+    if (cardId) cardId.textContent = `${i18n.t('vip.id')}: ${ambassador.vip_code.split('-').pop().substring(0, 6)}`;
+
+    if (followerPassesTitle) followerPassesTitle.textContent = i18n.t('vip.follower_passes', { count: ambassador.community_codes.length });
+    if (unlockedMsg) unlockedMsg.innerHTML = i18n.t('vip.unlocked_msg', { count: `<span>${ambassador.community_codes.length} one-month passes</span>` });
 
     if (codeList) {
         codeList.innerHTML = '';
@@ -139,10 +145,10 @@ function renderAmbassador(ambassador) {
                     <span class="code-index">${(index + 1).toString().padStart(2, '0')}</span>
                     <div class="code-info">
                         <span class="code-text">${code}</span>
-                        <span class="code-desc">1-month access</span>
+                        <span class="code-desc">${i18n.t('vip.one_month_access')}</span>
                     </div>
                 </div>
-                <button class="copy-btn">Copy</button>
+                <button class="copy-btn">${i18n.t('common.copy')}</button>
             `;
             codeList.appendChild(row);
         });
@@ -171,11 +177,11 @@ async function init() {
             renderAmbassador(ambassador);
         } else {
             console.error('Ambassador not found');
-            showToast('VIP Access not found');
+            showToast(i18n.t('vip.not_found'));
         }
     } catch (err) {
         console.error('Error:', err);
-        showToast('Error loading VIP data');
+        showToast(i18n.t('vip.error_loading'));
     }
 
     // Event Listeners
@@ -192,4 +198,10 @@ async function init() {
 }
 
 // Start
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', () => {
+    if (i18n.isLoaded) {
+        init();
+    } else {
+        window.addEventListener('i18n-ready', init);
+    }
+});

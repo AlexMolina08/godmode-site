@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Godmode</title>
-  <meta name="description" content="Contact Godmode - Get in touch with our team for support, feedback, or questions about our AI-powered fitness app.">
+  <title data-i18n="contact.title">Contact | Godmode</title>
+  <meta name="description" data-i18n-attr="content" data-i18n="contact.description"
+    content="Contact Godmode - Get in touch with our team for support, feedback, or questions about our AI-powered fitness app.">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <!-- Header -->
   <header class="header">
     <div class="container">
       <div class="nav-brand">
         <img src="godmode-logo.svg" alt="Godmode Logo" class="logo">
-        <span class="brand-text">Godmode</span>
+        <span class="brand-text" data-i18n="index.brand">Godmode</span>
       </div>
       <nav class="nav">
         <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="privacy.html" class="nav-link">Privacy</a></li>
-          <li><a href="terms.html" class="nav-link">Terms</a></li>
-          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+          <li><a href="index.html" class="nav-link" data-i18n="common.home">Home</a></li>
+          <li><a href="privacy.html" class="nav-link" data-i18n="common.privacy">Privacy</a></li>
+          <li><a href="terms.html" class="nav-link" data-i18n="common.terms">Terms</a></li>
+          <li><a href="contact.html" class="nav-link active" data-i18n="common.contact">Contact</a></li>
         </ul>
         <button class="nav-toggle" aria-label="Toggle navigation">
           <span></span>
@@ -34,8 +37,8 @@
   <!-- Page Header -->
   <section class="page-header">
     <div class="container">
-      <h1>Contact &amp; Feedback</h1>
-      <p>Get in touch with our team for support and questions</p>
+      <h1 data-i18n="contact.page_header_title">Contact &amp; Feedback</h1>
+      <p data-i18n="contact.page_header_subtitle">Get in touch with our team for support and questions</p>
     </div>
   </section>
 
@@ -43,66 +46,77 @@
   <main class="contact-page">
     <div class="container">
       <header class="contact-header">
-        <h1>Contact & Support</h1>
-        <p>We'd love to hear from you. Your input helps us improve and create a better fitness experience for everyone.</p>
+        <h1 data-i18n="contact.main_header_title">Contact & Support</h1>
+        <p data-i18n="contact.main_header_desc">We'd love to hear from you. Your input helps us improve and create a
+          better fitness experience for everyone.</p>
       </header>
 
       <section class="contact-content">
         <div class="contact-section">
-          <h2>Get in Touch</h2>
-          <p>For questions, suggestions, or feedback about Godmode, please reach out to us:</p>
-          
+          <h2 data-i18n="contact.get_in_touch">Get in Touch</h2>
+          <p data-i18n="contact.get_in_touch_desc">For questions, suggestions, or feedback about Godmode, please reach
+            out to us:</p>
+
           <div class="contact-info">
             <div class="contact-item">
-              <h3>Email Support</h3>
+              <h3 data-i18n="contact.email_support">Email Support</h3>
               <p><a href="mailto:support@godmodeapp.vercel.app">support@godmodeapp.vercel.app</a></p>
-              <p class="contact-meta">Response time: Within 2 business days</p>
+              <p class="contact-meta" data-i18n="contact.response_time">Response time: Within 2 business days</p>
             </div>
-            
+
             <div class="contact-item">
-              <h3>Support Hours</h3>
-              <p>Monday - Friday<br>9:00 AM - 6:00 PM CET</p>
+              <h3 data-i18n="contact.support_hours">Support Hours</h3>
+              <p><span data-i18n="contact.support_days">Monday - Friday</span><br><span
+                  data-i18n="contact.support_time">9:00 AM - 6:00 PM CET</span></p>
             </div>
           </div>
-          
+
           <div class="contact-actions">
-            <a href="mailto:support@godmodeapp.vercel.app" class="btn btn-primary">Send Email</a>
-            <a href="mailto:support@godmodeapp.vercel.app?subject=Bug Report" class="btn btn-secondary">Report Bug</a>
+            <a href="mailto:support@godmodeapp.vercel.app" class="btn btn-primary" data-i18n="contact.send_email">Send
+              Email</a>
+            <a href="mailto:support@godmodeapp.vercel.app?subject=Bug Report" class="btn btn-secondary"
+              data-i18n="contact.report_bug">Report Bug</a>
           </div>
         </div>
 
         <div class="contact-section">
-          <h2>Frequently Asked Questions</h2>
-          
+          <h2 data-i18n="contact.faq_title">Frequently Asked Questions</h2>
+
           <div class="faq-item">
-            <h3>How do I cancel my subscription?</h3>
-            <p>You can cancel your subscription at any time through your account settings in the app or by contacting our support team.</p>
+            <h3 data-i18n="contact.faq_q1">How do I cancel my subscription?</h3>
+            <p data-i18n="contact.faq_a1">You can cancel your subscription at any time through your account settings in
+              the app or by contacting our support team.</p>
           </div>
-          
+
           <div class="faq-item">
-            <h3>Is my workout data secure?</h3>
-            <p>Yes, we take data security seriously. Read our <a href="privacy.html">Privacy Policy</a> for detailed information about how we protect your data.</p>
+            <h3 data-i18n="contact.faq_q2">Is my workout data secure?</h3>
+            <p><span data-i18n="contact.faq_a2_p1">Yes, we take data security seriously. Read our </span><a
+                href="privacy.html" data-i18n="common.privacy">Privacy Policy</a><span data-i18n="contact.faq_a2_p2">
+                for detailed information about how we protect your data.</span></p>
           </div>
-          
+
           <div class="faq-item">
-            <h3>Can I sync with other fitness apps?</h3>
-            <p>Currently, Godmode works as a standalone app. We're exploring integrations with popular fitness platforms for future updates.</p>
+            <h3 data-i18n="contact.faq_q3">Can I sync with other fitness apps?</h3>
+            <p data-i18n="contact.faq_a3">Currently, Godmode works as a standalone app. We're exploring integrations
+              with popular fitness platforms for future updates.</p>
           </div>
-          
+
           <div class="faq-item">
-            <h3>Do you offer refunds?</h3>
-            <p>Refund policies depend on your platform (App Store/Google Play). Contact us for assistance with refund requests.</p>
+            <h3 data-i18n="contact.faq_q4">Do you offer refunds?</h3>
+            <p data-i18n="contact.faq_a4">Refund policies depend on your platform (App Store/Google Play). Contact us
+              for assistance with refund requests.</p>
           </div>
         </div>
 
         <div class="contact-section">
-          <h2>Bug Reports</h2>
-          <p>Encountered a problem with the app? Help us improve by reporting bugs or technical issues. Please include:</p>
+          <h2 data-i18n="contact.bug_reports_title">Bug Reports</h2>
+          <p data-i18n="contact.bug_reports_desc">Encountered a problem with the app? Help us improve by reporting bugs
+            or technical issues. Please include:</p>
           <ul>
-            <li>Device type and operating system version</li>
-            <li>App version number</li>
-            <li>Steps to reproduce the issue</li>
-            <li>Screenshots if applicable</li>
+            <li data-i18n="contact.bug_list_1">Device type and operating system version</li>
+            <li data-i18n="contact.bug_list_2">App version number</li>
+            <li data-i18n="contact.bug_list_3">Steps to reproduce the issue</li>
+            <li data-i18n="contact.bug_list_4">Screenshots if applicable</li>
           </ul>
         </div>
       </section>
@@ -112,10 +126,13 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Godmode. All rights reserved. We're here to help you succeed.</p>
+      <p>&copy; 2025 Godmode. <span data-i18n="index.all_rights">All rights reserved.</span> <span
+          data-i18n="contact.footer_msg">We're here to help you succeed.</span></p>
     </div>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>
