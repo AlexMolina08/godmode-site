@@ -12,7 +12,7 @@
     --surface-2: rgba(255, 255, 255, 0.055);
     --gold-soft-fill: rgba(215, 180, 106, 0.10);
     --gold-border: rgba(215, 180, 106, 0.20);
-    
+
     --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
 }
 
@@ -110,7 +110,7 @@ body {
     justify-content: space-between;
     padding: 24px;
     background: linear-gradient(180deg, var(--bg1) 0%, #101216 100%);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.08);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     border: 1px solid var(--border-soft);
     transition: transform 0.5s ease-out;
 }
@@ -118,7 +118,7 @@ body {
 .card-vignette {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
     pointer-events: none;
 }
 
@@ -157,8 +157,15 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: .5; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .5;
+    }
 }
 
 .badge-text {
@@ -193,10 +200,11 @@ body {
 }
 
 .card-logo {
-    width: 80px;
-    height: 80px;
-    color: var(--gold);
-    filter: drop-shadow(0 0 15px rgba(215,180,106,0.3));
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(215, 180, 106, 0.3));
+    z-index: 11;
 }
 
 .card-title {
@@ -309,7 +317,7 @@ body {
 .redeem-btn .shine {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
     transform: skewX(-12deg) translateX(-150%);
     transition: transform 0.7s ease-in-out;
 }
@@ -338,7 +346,9 @@ body {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Message Block */
