@@ -61,7 +61,7 @@ body::before {
 .header-pill-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .header-pill {
@@ -89,10 +89,14 @@ body::before {
 .vip-card-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 3.2 / 4;
-    max-height: 400px;
-    margin: 0 auto 32px auto;
+    aspect-ratio: 3.2 / 4.4;
+    /* Slightly taller aspect but controlled height */
+    max-height: 520px;
+    /* Allow it to be taller if needed, but we rely on content */
+    margin: 0 auto 24px auto;
     perspective: 1200px;
+    /* Compact override */
+    max-width: 340px;
 }
 
 .card-glow {
@@ -114,7 +118,7 @@ body::before {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 22px;
+    padding: 20px;
     background: var(--card-bg);
     box-shadow:
         0 20px 50px rgba(0, 0, 0, 0.5),
@@ -208,18 +212,18 @@ body::before {
 }
 
 .card-logo {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
     filter: drop-shadow(0 0 12px rgba(215, 180, 106, 0.2));
     z-index: 11;
 }
 
 .card-title {
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.35em;
-    color: var(--text-secondary);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--text-primary);
     text-transform: uppercase;
 }
 
@@ -368,32 +372,35 @@ body::before {
     }
 }
 
-/* Message Block */
-.message-block {
-    border-radius: 18px;
-    padding: 20px;
-    margin: 24px 0;
-    background-color: rgba(215, 180, 106, 0.04);
-    border: 1px solid var(--border-gold-15);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+/* Invitation Header (Editorial) */
+.invitation-header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 12px 0 0 0;
 }
 
-.message-block h3 {
+.invitation-header h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 auto 12px auto;
+    letter-spacing: -0.02em;
+    max-width: 14em;
+    /* Force wrap for editorial look */
+}
+
+.invitation-header p {
     font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.message-block p {
-    font-size: 14px;
     line-height: 1.5;
-    color: rgba(244, 241, 234, 0.8);
+    color: var(--text-secondary);
+    max-width: 320px;
+    margin: 0 auto;
 }
 
-.message-block span {
+.invitation-header span {
     color: var(--gold);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 /* Codes Section */
