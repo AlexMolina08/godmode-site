@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Godmode - AI Fitness Companion</title>
-  <meta name="description" content="Transform your fitness journey with Godmode, the AI-powered fitness companion that creates personalized workout plans and tracks your progress.">
+  <meta name="description"
+    content="Transform your fitness journey with Godmode. AI-powered workouts, scientific progress tracking with the Godmode Algorithm, and personalized training plans.">
+  <meta name="theme-color" content="#0A0A0A">
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
   <!-- Header Navigation -->
   <header class="header">
     <div class="container">
-      <div class="nav-brand">
+      <a href="index.html" class="nav-brand">
         <img src="godmode-logo.svg" alt="Godmode Logo" class="logo">
         <span class="brand-text">Godmode</span>
-      </div>
+      </a>
       <nav class="nav">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="#algorithm" class="nav-link">Algorithm</a></li>
           <li><a href="privacy.html" class="nav-link">Privacy</a></li>
           <li><a href="terms.html" class="nav-link">Terms</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
@@ -33,13 +43,13 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content container">
+    <div class="hero-content">
       <img src="godmode-logo.svg" alt="Godmode Logo" class="hero-logo">
       <h1 class="hero-title">Welcome to Godmode</h1>
-      <p class="hero-subtitle">Transform your fitness journey with our AI-powered companion. Get personalized workouts, track your progress, and achieve your goals like never before.</p>
-      
+      <p class="hero-subtitle">Transform your fitness journey with AI-powered training. Scientific progress tracking.
+        Personalized workouts. Real results.</p>
       <div class="hero-actions">
-        <a href="#features" class="btn btn-primary">Discover Features</a>
+        <a href="#algorithm" class="btn btn-primary">How It Works</a>
         <a href="contact.html" class="btn btn-secondary">Get Support</a>
       </div>
     </div>
@@ -48,22 +58,124 @@
   <!-- Features Section -->
   <section id="features" class="section">
     <div class="container">
-      <h2 class="fade-in">Why Choose Godmode?</h2>
+      <div class="section-header fade-in">
+        <h2>Why Choose Godmode?</h2>
+        <p>Cutting-edge AI meets proven fitness science.</p>
+      </div>
       <div class="grid grid-3">
-        <div class="card fade-in">
+        <article class="card fade-in">
           <h3 class="card-title">AI-Powered Workouts</h3>
-          <p class="card-text">Get personalized workout plans tailored to your fitness level, goals, and preferences. Our AI learns from your progress to optimize every session.</p>
-        </div>
-        
-        <div class="card fade-in">
+          <p class="card-text">Personalized plans tailored to your goals, equipment, and fitness level. The AI learns
+            from every session.</p>
+        </article>
+        <article class="card fade-in">
           <h3 class="card-title">Smart Progress Tracking</h3>
-          <p class="card-text">Monitor your fitness journey with detailed analytics, progress photos, and performance metrics that help you stay motivated and on track.</p>
-        </div>
-        
-        <div class="card fade-in">
+          <p class="card-text">Detailed analytics using the Godmode Algorithm to measure true strength, not just weight
+            lifted.</p>
+        </article>
+        <article class="card fade-in">
           <h3 class="card-title">Adaptive Training</h3>
-          <p class="card-text">Your workouts evolve with you. As you get stronger, our AI adjusts the intensity, exercises, and challenges to keep you progressing.</p>
+          <p class="card-text">Your workouts evolve with you. Intensity, volume, and exercises adjust as you progress.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Godmode Algorithm Section -->
+  <section id="algorithm" class="section algorithm-section">
+    <div class="container">
+      <div class="algorithm-intro fade-in">
+        <h2>The Godmode Algorithm</h2>
+        <p>How We Measure True Strength</p>
+      </div>
+
+      <!-- The Problem -->
+      <div class="grid grid-2">
+        <div class="slide-in-left">
+          <h3>The Problem</h3>
+          <p>Most fitness apps use a simplistic approach: they track the heaviest weight you touched that day. This is
+            <strong>flawed</strong>. It ignores volume, rep ranges, and consistency. It rewards ego-lifting rather than
+            working capacity.</p>
         </div>
+        <div class="slide-in-right">
+          <h3>Our Solution</h3>
+          <p>Godmode uses a <strong>deterministic approach</strong> to tracking. We don't guess; we calculate. We
+            utilize an Aggregate Estimated 1-Rep Max (e1RM) to generate a single, stable performance score for every
+            session.</p>
+        </div>
+      </div>
+
+      <!-- The Formula -->
+      <div class="formula-card fade-in">
+        <p style="color: var(--color-text-secondary); margin-bottom: var(--space-sm);">The Core Formula: Epley e1RM</p>
+        <div class="formula">e1RM = w × (1 + r / 30)</div>
+        <p class="formula-label">where <strong>w</strong> = weight lifted, <strong>r</strong> = repetitions</p>
+        <p style="margin-top: var(--space-md); color: var(--color-text-tertiary); font-size: var(--font-size-sm);">
+          Example: 100kg × 10 reps = <strong>133.3kg</strong> theoretical 1-rep max</p>
+      </div>
+
+      <!-- Session Score Logic -->
+      <div class="algorithm-steps fade-in">
+        <h3 style="text-align: center; margin-bottom: var(--space-lg);">The "Session Score" Logic</h3>
+        <div class="grid grid-3">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Score Every Set</h3>
+              <p>The system calculates the e1RM for every valid set you complete.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Filter Top 3</h3>
+              <p>We sort your sets and select the top 3 best performing sets.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Calculate Average</h3>
+              <p>We average those three scores for your final data point.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why It Works -->
+      <div class="card fade-in"
+        style="margin-top: var(--space-2xl); max-width: 700px; margin-left: auto; margin-right: auto;">
+        <h3 class="card-title">Why This Works</h3>
+        <p class="card-text">Averaging the top 3 sets removes volatility. If you hit a PR on set 1 but burn out on the
+          rest, your score reflects that drop. It rewards <strong>consistent performance</strong> across multiple
+          working sets—the exact type of training required for hypertrophy.</p>
+      </div>
+
+      <!-- Graph Preview -->
+      <div class="graph-preview fade-in">
+        <img src="assets/progress-graph.png" alt="Godmode Progress Graph showing upward performance trend"
+          loading="lazy">
+        <p class="graph-caption">"If the line goes up, your muscle has no choice but to grow."</p>
+      </div>
+
+      <!-- Visualization Timeframes -->
+      <div class="grid grid-3" style="margin-top: var(--space-2xl);">
+        <article class="card fade-in">
+          <h3 class="card-title">Short Term</h3>
+          <p class="card-text"><strong>1 Week – 3 Months</strong><br>Line chart of individual session scores. Track
+            workout-to-workout progression.</p>
+        </article>
+        <article class="card fade-in">
+          <h3 class="card-title">Medium Term</h3>
+          <p class="card-text"><strong>6 Months – 1 Year</strong><br>Bar chart of monthly max. See macro-trends, filter
+            out noise.</p>
+        </article>
+        <article class="card fade-in">
+          <h3 class="card-title">Long Term</h3>
+          <p class="card-text"><strong>All Time</strong><br>Aggregated line chart. The bird's-eye view of your lifting
+            career.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -74,20 +186,21 @@
       <div class="grid grid-2">
         <div class="slide-in-left">
           <h2>Your Fitness, Reimagined</h2>
-          <p>Godmode combines cutting-edge AI technology with proven fitness science to deliver a truly personalized experience. Whether you're a beginner or a seasoned athlete, our app adapts to your unique needs.</p>
-          <ul>
-            <li>✨ Personalized workout generation</li>
-            <li>📊 Comprehensive progress analytics</li>
-            <li>🎯 Goal-oriented training plans</li>
-            <li>🔄 Adaptive difficulty scaling</li>
+          <p>Godmode combines cutting-edge AI technology with proven fitness science. Whether you're a beginner or a
+            seasoned athlete, our app adapts to you.</p>
+          <ul class="features-list">
+            <li>Personalized workout generation</li>
+            <li>Comprehensive progress analytics</li>
+            <li>Goal-oriented training plans</li>
+            <li>Adaptive difficulty scaling</li>
           </ul>
         </div>
-        
         <div class="card slide-in-right">
           <h3 class="card-title">Ready to Start?</h3>
-          <p class="card-text">Join thousands of users who have transformed their fitness journey with Godmode. Download the app and experience the future of personal training.</p>
-          <div style="margin-top: 1.5rem;">
-            <a href="#" class="btn btn-primary" style="margin-right: 1rem;">Download App</a>
+          <p class="card-text">Join thousands who have transformed their fitness journey with Godmode. Download the app
+            and experience the future of personal training.</p>
+          <div style="margin-top: var(--space-lg); display: flex; gap: var(--space-md); flex-wrap: wrap;">
+            <a href="#" class="btn btn-primary">Download App</a>
             <a href="contact.html" class="btn btn-secondary">Learn More</a>
           </div>
         </div>
@@ -99,23 +212,23 @@
   <section class="section-sm">
     <div class="container">
       <div class="grid grid-3">
-        <div class="card fade-in">
+        <article class="card fade-in">
           <h3 class="card-title">Privacy Policy</h3>
-          <p class="card-text">Learn how we protect your personal information and fitness data with industry-leading security measures.</p>
-          <a href="privacy.html" class="btn btn-secondary">Read Policy</a>
-        </div>
-        
-        <div class="card fade-in">
+          <p class="card-text">Learn how we protect your personal information and fitness data with industry-leading
+            security.</p>
+          <a href="privacy.html" class="btn btn-secondary" style="margin-top: var(--space-md);">Read Policy</a>
+        </article>
+        <article class="card fade-in">
           <h3 class="card-title">Terms of Service</h3>
-          <p class="card-text">Understand your rights and responsibilities when using the Godmode app and our services.</p>
-          <a href="terms.html" class="btn btn-secondary">View Terms</a>
-        </div>
-        
-        <div class="card fade-in">
+          <p class="card-text">Understand your rights and responsibilities when using the Godmode app and services.</p>
+          <a href="terms.html" class="btn btn-secondary" style="margin-top: var(--space-md);">View Terms</a>
+        </article>
+        <article class="card fade-in">
           <h3 class="card-title">Contact & Support</h3>
-          <p class="card-text">Have questions or need help? Our support team is here to assist you on your fitness journey.</p>
-          <a href="contact.html" class="btn btn-secondary">Get Help</a>
-        </div>
+          <p class="card-text">Have questions or need help? Our support team is here to assist you on your fitness
+            journey.</p>
+          <a href="contact.html" class="btn btn-secondary" style="margin-top: var(--space-md);">Get Help</a>
+        </article>
       </div>
     </div>
   </section>
@@ -123,10 +236,11 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Godmode. All rights reserved. Transform your fitness journey with AI.</p>
+      <p>&copy; 2025 Godmode. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>
