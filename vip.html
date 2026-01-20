@@ -90,7 +90,7 @@
            ============================================ */
         .hero-section {
             flex-shrink: 0;
-            padding: 24px 20px 20px;
+            padding: 30px 20px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -103,40 +103,40 @@
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--color-gold);
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             opacity: 0.9;
         }
 
         /* 3D Card Container */
         .card-perspective {
-            perspective: 1000px;
+            perspective: 1200px;
             width: 100%;
-            max-width: 340px;
+            max-width: 380px;
+            /* Increased size */
         }
 
         .vip-card {
             position: relative;
             width: 100%;
             aspect-ratio: 1.586;
-            background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 30%, #0a0a0a 70%, #111111 100%);
-            border-radius: 20px;
+            background: linear-gradient(145deg, #151515 0%, #080808 40%, #050505 100%);
+            border-radius: 24px;
             padding: 28px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transform-style: preserve-3d;
-            transition: transform 0.15s ease-out;
+            transition: transform 0.1s ease-out;
             will-change: transform;
             overflow: hidden;
-            border: 2px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.15);
             box-shadow:
-                0 30px 60px -15px rgba(0, 0, 0, 0.9),
-                0 0 0 1px rgba(212, 175, 55, 0.1) inset,
-                0 2px 0 rgba(255, 255, 255, 0.08) inset,
-                0 0 40px rgba(212, 175, 55, 0.15);
+                0 30px 60px -10px rgba(0, 0, 0, 0.9),
+                0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+                0 0 40px rgba(212, 175, 55, 0.05);
         }
 
-        /* Holographic shimmer overlay */
+        /* Holographic shimmer overlay - Subtle Gold */
         .vip-card::before {
             content: '';
             position: absolute;
@@ -144,19 +144,16 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(105deg,
+            background: linear-gradient(115deg,
                     transparent 40%,
-                    rgba(255, 255, 255, 0.03) 45%,
-                    rgba(255, 255, 255, 0.05) 50%,
-                    rgba(255, 255, 255, 0.03) 55%,
+                    rgba(212, 175, 55, 0.05) 45%,
+                    rgba(255, 255, 255, 0.1) 50%,
+                    rgba(212, 175, 55, 0.05) 55%,
                     transparent 60%);
             transform: translateX(-100%);
             pointer-events: none;
             z-index: 1;
-        }
-
-        .vip-card.shimmer::before {
-            animation: shimmer 2s ease-in-out;
+            mix-blend-mode: overlay;
         }
 
         @keyframes shimmer {
@@ -207,80 +204,93 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            /* Centered alignment */
             position: relative;
             z-index: 2;
         }
 
-        .card-left {
+        .card-brand {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
 
+        /* Fixed Logo Container */
         .card-logo {
-            width: 48px;
-            height: 48px;
-            filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.4));
+            width: 42px;
+            height: 42px;
         }
 
         .card-logo svg {
             width: 100%;
             height: 100%;
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
         }
 
         .card-label {
             font-family: var(--font-display);
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 700;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--color-gold-light);
-            text-shadow: 0 2px 8px rgba(212, 175, 55, 0.5);
+            color: var(--color-text-primary);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .card-type {
-            font-family: var(--font-display);
-            font-size: 9px;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--color-text-tertiary);
             text-align: right;
+            line-height: 1;
         }
 
-        .card-type span {
+        .card-type-year {
+            font-family: var(--font-display);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--color-text-tertiary);
             display: block;
-            color: var(--color-gold);
-            font-size: 12px;
-            font-weight: 700;
-            margin-top: 2px;
+            margin-bottom: 4px;
         }
 
+        .card-type-vip {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            color: var(--color-gold);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Updated Redeem Button area */
         .card-body {
             position: relative;
             z-index: 2;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
         }
 
         .card-code {
-            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            color: #1a1a1a;
-            background: linear-gradient(145deg, var(--color-gold-light) 0%, var(--color-gold) 50%, #C9A961 100%);
-            padding: 16px 20px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: #000;
+            background: linear-gradient(135deg, #F4E4BC 0%, #D4AF37 50%, #B4941F 100%);
+            padding: 14px 28px;
+            border-radius: 30px;
+            cursor: pointer;
             transition: all 0.2s ease;
-            position: relative;
-            overflow: hidden;
             box-shadow:
-                0 4px 12px rgba(212, 175, 55, 0.4),
-                0 0 0 1px rgba(255, 255, 255, 0.3) inset,
-                0 1px 0 rgba(255, 255, 255, 0.5) inset;
-            text-align: center;
+                0 4px 15px rgba(212, 175, 55, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset;
             text-transform: uppercase;
+        }
+
+        .card-code:active {
+            transform: scale(0.96);
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
         }
 
         .card-footer {
@@ -291,17 +301,27 @@
             z-index: 2;
         }
 
-        .card-name {
-            font-family: var(--font-display);
-            font-size: 15px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
+        .card-holder {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .holder-label {
+            font-size: 8px;
             text-transform: uppercase;
-            background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 50%, var(--color-gold-light) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+            letter-spacing: 0.1em;
+            color: var(--color-text-tertiary);
+        }
+
+        .card-name {
+            font-family: 'OCR A Std', 'Monaco', monospace;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .tap-hint {
@@ -337,30 +357,44 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            padding: 0 20px 20px;
+            padding: 10px 20px 20px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .section-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 16px 0;
-            flex-shrink: 0;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
         }
 
         .section-title {
             font-family: var(--font-display);
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--color-text-secondary);
+            background: var(--color-base);
+            padding: 0 16px;
+            z-index: 1;
         }
 
         .section-line {
-            flex: 1;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
             height: 1px;
-            background: linear-gradient(90deg, var(--color-border-highlight), transparent);
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    var(--color-border) 20%,
+                    var(--color-border) 80%,
+                    transparent 100%);
+            z-index: 0;
         }
 
         .codes-grid {
@@ -370,7 +404,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
@@ -381,79 +415,68 @@
 
         .code-capsule {
             position: relative;
-            background: linear-gradient(145deg, var(--color-elevated-2), var(--color-elevated-1));
+            background: rgba(20, 20, 20, 0.6);
             border: 1px solid var(--color-border);
-            border-radius: 12px;
-            padding: 14px;
+            border-radius: 8px;
+            padding: 12px;
             cursor: pointer;
             transition: all 0.2s ease;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 6px;
+        }
+
+        .code-capsule:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(30, 30, 30, 0.8);
         }
 
         .code-capsule:active {
-            transform: scale(0.97);
-            background: var(--color-elevated-3);
+            transform: scale(0.98);
         }
 
         .code-capsule.copied {
-            border-color: var(--color-accent);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
-        }
-
-        .capsule-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            border-color: var(--color-gold);
+            background: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
         }
 
         .capsule-number {
+            position: absolute;
+            top: 6px;
+            left: 8px;
             font-family: var(--font-display);
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            color: var(--color-accent);
-            opacity: 0.8;
-        }
-
-        .capsule-icon {
-            width: 16px;
-            height: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-
-        .code-capsule.copied .capsule-icon {
-            opacity: 1;
-        }
-
-        .capsule-icon svg {
-            width: 14px;
-            height: 14px;
-            color: var(--color-accent);
+            font-size: 8px;
+            color: var(--color-text-tertiary);
         }
 
         .capsule-code {
-            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
-            font-size: 11px;
+            font-family: 'SF Mono', 'Monaco', monospace;
+            font-size: 13px;
             font-weight: 500;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
             color: var(--color-text-primary);
-            word-break: break-all;
-            line-height: 1.4;
+            opacity: 0.9;
         }
 
-        .capsule-label {
+        .code-capsule.copied .capsule-code {
+            color: var(--color-gold);
+            font-weight: 700;
+        }
+
+        .capsule-status {
             font-size: 9px;
-            font-weight: 500;
-            letter-spacing: 0.08em;
             text-transform: uppercase;
+            letter-spacing: 0.1em;
             color: var(--color-text-tertiary);
+        }
+
+        .code-capsule.copied .capsule-status {
+            color: var(--color-gold);
         }
 
         /* ============================================
@@ -648,16 +671,9 @@
                 capsule.onclick = () => copyCode(capsule, code);
 
                 capsule.innerHTML = `
-                    <div class="capsule-header">
-                        <span class="capsule-number">${String(index + 1).padStart(2, '0')}</span>
-                        <div class="capsule-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </div>
-                    </div>
+                    <div class="capsule-number">${String(index + 1).padStart(2, '0')}</div>
                     <div class="capsule-code">${code}</div>
-                    <div class="capsule-label">1 Month Access</div>
+                    <div class="capsule-status">1 Month Access</div>
                 `;
 
                 grid.appendChild(capsule);
