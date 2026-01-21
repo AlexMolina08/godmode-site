@@ -33,7 +33,8 @@
             color: #888;
         }
 
-        button {
+        /* Shared button style for both <button> and <a> */
+        .button-style {
             background-color: #ffffff;
             color: #000000;
             border: none;
@@ -46,15 +47,23 @@
             max-width: 320px;
             transition: opacity 0.2s;
             -webkit-tap-highlight-color: transparent;
+            text-decoration: none;
+            /* For anchor tag */
+            display: inline-block;
+            /* For anchor tag */
+            box-sizing: border-box;
+            /* Ensure padding doesn't affect width calculation */
         }
 
-        button:active {
+        .button-style:active {
             opacity: 0.8;
         }
 
-        button:disabled {
+        .button-style.disabled {
             opacity: 0.5;
             cursor: default;
+            pointer-events: none;
+            /* Prevent clicks on disabled link */
         }
     </style>
 </head>
@@ -63,28 +72,32 @@
     <h1>Open in App Store</h1>
     <p>Tap the button to download Godmode</p>
 
-    <button id="download-btn" type="button">Download Godmode</button>
+    <!-- 
+        Native Anchor Tag:
+        TikTok's in-app browser blocks window.location.href and other programmatic redirects ("Action can't be completed").
+        A standard <a href> tag with a _self or _top target is the most robust way to trigger a Universal Link.
+        We style it exactly like the button.
+    -->
+    <a id="download-link" href="https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918"
+        class="button-style">Download Godmode</a>
 
     <script>
-        document.getElementById('download-btn').addEventListener('click', function (e) {
-            // Safety guards
-            e.preventDefault();
-
+        document.getElementById('download-link').addEventListener('click', function (e) {
+            // Note: We DO NOT preventDefault(). We want the native link navigation to happen.
+            // We just update the UI to show feedback.
             var btn = this;
-            if (btn.disabled) return;
-            btn.disabled = true;
+            if (btn.classList.contains('disabled')) {
+                e.preventDefault();
+                return;
+            }
+
+            // UI Feedback
             btn.textContent = "Opening...";
+            btn.classList.add('disabled');
 
-            // Use HTTPS Universal Link strictly.
-            // The 'itms-apps' scheme causes "Action can't be completed" in TikTok.
-            // HTTPS link will trigger the system Universal Link handler or fall back to the App Store page.
-            var httpsUrl = "https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918";
-
-            window.location.href = httpsUrl;
-
-            // Re-enable button after a longer delay
+            // Re-enable after delay (in case user returns)
             setTimeout(function () {
-                btn.disabled = false;
+                btn.classList.remove('disabled');
                 btn.textContent = "Download Godmode";
             }, 3000);
         });
