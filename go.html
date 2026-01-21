@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="apple-itunes-app" content="app-id=6748595918">
+
     <title>Download Godmode</title>
     <style>
         body {
@@ -22,25 +25,25 @@
         }
 
         h1 {
-            font-size: 24px;
-            margin-bottom: 8px;
+            font-size: 26px;
+            margin-bottom: 12px;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
 
         p {
-            font-size: 16px;
+            font-size: 17px;
             margin-bottom: 40px;
-            color: #888;
+            color: #A0A0A0;
             margin-top: 0;
+            line-height: 1.4;
         }
 
-        /* THE MAGIC BUTTON */
+        /* The Button */
         .download-btn {
             background-color: #ffffff;
             color: #000000;
             text-decoration: none;
-            /* Essential for <a> tags */
             padding: 18px 32px;
             font-size: 18px;
             font-weight: 700;
@@ -49,21 +52,22 @@
             max-width: 320px;
             display: block;
             box-sizing: border-box;
+            cursor: pointer;
             transition: transform 0.1s, opacity 0.2s;
             -webkit-tap-highlight-color: transparent;
+            border: none;
+            outline: none;
         }
 
         .download-btn:active {
-            transform: scale(0.98);
+            transform: scale(0.96);
             opacity: 0.9;
         }
 
-        .fallback-link {
-            margin-top: 24px;
+        .footer-note {
+            margin-top: 30px;
+            font-size: 13px;
             color: #444;
-            font-size: 14px;
-            text-decoration: underline;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -73,14 +77,36 @@
     <h1>Open in App Store</h1>
     <p>Tap below to continue to Godmode</p>
 
-    <a href="itms-apps://itunes.apple.com/app/id6748595918" class="download-btn">
+    <button id="deepLinkBtn" class="download-btn">
         Download Godmode
-    </a>
+    </button>
 
-    <a href="https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918" class="fallback-link">
-        Not working? Click here
-    </a>
+    <div class="footer-note">
+        If nothing happens, <a href="https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918"
+            style="color:#666; text-decoration: underline;">click here</a>
+    </div>
 
+    <script>
+        document.getElementById('deepLinkBtn').addEventListener('click', function () {
+            var btn = this;
+            btn.innerText = "Opening...";
+
+            // 1. Try to open the App Store App directly (Deep Link)
+            // We use location.href, NOT window.open
+            window.location.href = "itms-apps://itunes.apple.com/app/id6748595918";
+
+            // 2. Fallback (Layer 3): If the Deep Link fails (e.g. Android or blocked scheme),
+            // redirect to the standard HTTPS link after a short delay.
+            setTimeout(function () {
+                window.location.href = "https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918";
+
+                // Reset button text
+                setTimeout(function () {
+                    btn.innerText = "Download Godmode";
+                }, 500);
+            }, 500);
+        });
+    </script>
 </body>
 
 </html>
