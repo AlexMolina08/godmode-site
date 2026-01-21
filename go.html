@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Open in App Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Download Godmode</title>
     <style>
         body {
             background-color: #000000;
@@ -24,84 +24,63 @@
         h1 {
             font-size: 24px;
             margin-bottom: 8px;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         p {
             font-size: 16px;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
             color: #888;
+            margin-top: 0;
         }
 
-        /* Shared button style for both <button> and <a> */
-        .button-style {
+        /* THE MAGIC BUTTON */
+        .download-btn {
             background-color: #ffffff;
             color: #000000;
-            border: none;
-            padding: 16px 32px;
+            text-decoration: none;
+            /* Essential for <a> tags */
+            padding: 18px 32px;
             font-size: 18px;
-            font-weight: 600;
-            border-radius: 12px;
-            cursor: pointer;
+            font-weight: 700;
+            border-radius: 14px;
             width: 100%;
             max-width: 320px;
-            transition: opacity 0.2s;
-            -webkit-tap-highlight-color: transparent;
-            text-decoration: none;
-            /* For anchor tag */
-            display: inline-block;
-            /* For anchor tag */
+            display: block;
             box-sizing: border-box;
-            /* Ensure padding doesn't affect width calculation */
+            transition: transform 0.1s, opacity 0.2s;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .button-style:active {
-            opacity: 0.8;
+        .download-btn:active {
+            transform: scale(0.98);
+            opacity: 0.9;
         }
 
-        .button-style.disabled {
-            opacity: 0.5;
-            cursor: default;
-            pointer-events: none;
-            /* Prevent clicks on disabled link */
+        .fallback-link {
+            margin-top: 24px;
+            color: #444;
+            font-size: 14px;
+            text-decoration: underline;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
+
     <h1>Open in App Store</h1>
-    <p>Tap the button to download Godmode</p>
+    <p>Tap below to continue to Godmode</p>
 
-    <!-- 
-        Native Anchor Tag with Target New Window:
-        TikTok's in-app browser blocks standard navigation to "apps.apple.com".
-        Adding target="_blank" often forces the WebView to hand off the navigation to the OS or a new window context,
-        which allows the Universal Link to trigger correctly.
-    -->
-    <a id="download-link" href="https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918" target="_blank"
-        class="button-style">Download Godmode</a>
+    <a href="itms-apps://itunes.apple.com/app/id6748595918" class="download-btn">
+        Download Godmode
+    </a>
 
-    <script>
-        document.getElementById('download-link').addEventListener('click', function (e) {
-            // Note: We DO NOT preventDefault(). We want the native link navigation to happen.
-            // We just update the UI to show feedback.
-            var btn = this;
-            if (btn.classList.contains('disabled')) {
-                e.preventDefault();
-                return;
-            }
+    <a href="https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918" class="fallback-link">
+        Not working? Click here
+    </a>
 
-            // UI Feedback
-            btn.textContent = "Opening...";
-            btn.classList.add('disabled');
-
-            // Re-enable after delay (in case user returns)
-            setTimeout(function () {
-                btn.classList.remove('disabled');
-                btn.textContent = "Download Godmode";
-            }, 3000);
-        });
-    </script>
 </body>
 
 </html>
