@@ -52,6 +52,54 @@
             display: block;
             width: 100%;
             max-width: 300px;
+            margin-bottom: 30px;
+        }
+
+        #debug-container {
+            margin-top: 30px;
+            width: 100%;
+            max-width: 600px;
+            text-align: left;
+            border: 1px solid #333;
+            padding: 10px;
+            background: #111;
+            font-family: monospace;
+            font-size: 10px;
+            border-radius: 8px;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #debug-log {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #0f0;
+            max-height: 300px;
+            overflow-y: auto;
+            margin: 0;
+            padding: 5px;
+        }
+
+        .debug-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            color: #888;
+            font-size: 12px;
+        }
+
+        .copy-btn {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -62,10 +110,86 @@
     <h1>Download Godmode</h1>
     <p>Build your aesthetic physique.</p>
 
-    <a href="https://apps.apple.com/app/id6748595918" class="btn">
+    <a href="https://apps.apple.com/app/id6748595918" class="btn" id="app-store-btn">
         Open App Store
     </a>
 
+    <div id="debug-container">
+        <div class="debug-header">
+            <span>DEBUG LOG</span>
+            <button class="copy-btn" onclick="copyLogs()">COPY</button>
+        </div>
+        <pre id="debug-log"></pre>
+    </div>
+
+    <script>
+        const logEl = document.getElementById('debug-log');
+
+        function log(msg, type = 'INFO') {
+            const time = new Date().toISOString().split('T')[1].slice(0, -1);
+            const line = `[${time}] [${type}] ${msg}\n`;
+            logEl.textContent += line;
+            console.log(`[${type}] ${msg}`);
+        }
+
+        function copyLogs() {
+            const content = logEl.textContent;
+            navigator.clipboard.writeText(content).then(() => {
+                const originalText = document.querySelector('.copy-btn').textContent;
+                document.querySelector('.copy-btn').textContent = 'COPIED!';
+                setTimeout(() => document.querySelector('.copy-btn').textContent = originalText, 2000);
+            }).catch(err => {
+                log('Failed to copy logs: ' + err, 'ERROR');
+            });
+        }
+
+        // Capture Global Errors
+        window.onerror = function (msg, url, lineNo, columnNo, error) {
+            log(`${msg} @ ${url}:${lineNo}:${columnNo}`, 'ERROR');
+            if (error && error.stack) log(error.stack, 'STACK');
+            return false;
+        };
+
+        window.onunhandledrejection = function (event) {
+            log('Unhandled Rejection: ' + event.reason, 'ERROR');
+        };
+
+        // Initialize Environment Info
+        try {
+            log('--- ENVIRONMENT INFO ---');
+            log(`User Agent: ${navigator.userAgent}`);
+            log(`Screen: ${window.innerWidth}x${window.innerHeight}`);
+            log(`Referrer: ${document.referrer || 'None'}`);
+            log(`Platform: ${navigator.platform}`);
+            log(`Language: ${navigator.language}`);
+            log(`Cookie Enabled: ${navigator.cookieEnabled}`);
+
+            // Check for specific in-app browser markers
+            const ua = navigator.userAgent.toLowerCase();
+            const isTikTok = ua.includes('tiktok');
+            const isInstagram = ua.includes('instagram');
+            const isFacebook = ua.includes('fbav') || ua.includes('fban');
+
+            if (isTikTok) log('Detected: TikTok In-App Browser', 'WARN');
+            if (isInstagram) log('Detected: Instagram In-App Browser', 'WARN');
+            if (isFacebook) log('Detected: Facebook In-App Browser', 'WARN');
+
+            log('--- LOG START ---');
+        } catch (e) {
+            log('Error gathering env info: ' + e.message, 'ERROR');
+        }
+
+        // Track Button Click
+        document.getElementById('app-store-btn').addEventListener('click', (e) => {
+            log('Button Clicked: Open App Store');
+            log(`Current Href: ${window.location.href}`);
+            log(`Target Href: ${e.currentTarget.href}`);
+
+            // Allow time for log to render before navigation (though nav might happen immediately)
+            // We can't prevent default easily if we want standard navigation, but we log strictly.
+        });
+
+    </script>
 </body>
 
 </html>
