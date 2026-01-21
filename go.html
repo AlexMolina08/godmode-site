@@ -3,91 +3,68 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Godmode Link Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="apple-itunes-app" content="app-id=6748595918">
+
+    <title>Godmode</title>
     <style>
         body {
-            background: #000;
-            color: #fff;
-            font-family: sans-serif;
-            padding: 20px;
+            background-color: #000000;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
             text-align: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 40px;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: #ff4d4d;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
-        /* Red title to show it's debug mode */
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
+        p {
+            color: #888;
+            margin-bottom: 40px;
             font-size: 16px;
         }
 
-        .btn-1 {
-            background: #007AFF;
-            color: white;
-        }
-
-        /* Blue */
-        .btn-2 {
-            background: #34C759;
-            color: white;
-        }
-
-        /* Green */
-        .btn-3 {
-            background: #FF9500;
-            color: white;
-        }
-
-        /* Orange */
-        .btn-4 {
-            background: #fff;
-            color: #000;
-        }
-
-        /* White */
-        .note {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 5px;
+        /* THE FIX: Standard Link */
+        .btn {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 18px 32px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 14px;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            max-width: 300px;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>DEBUG MODE</h1>
-    <p style="color:#aaa; font-size: 14px; margin-bottom: 30px;">Tap each button until one works.</p>
+    <div class="logo">⚡️</div>
+    <h1>Download Godmode</h1>
+    <p>Build your aesthetic physique.</p>
 
-    <div class="note">Method 1: iTunes Scheme</div>
-    <a href="https://itunes.apple.com/app/id6748595918?mt=8" class="btn btn-1" target="_self">
-        Attempt 1 (iTunes)
+    <a href="https://apps.apple.com/app/id6748595918" class="btn">
+        Open App Store
     </a>
-
-    <div class="note">Method 2: Deep Link Scheme</div>
-    <a href="itms-apps://itunes.apple.com/app/id6748595918" class="btn btn-2" target="_self">
-        Attempt 2 (itms-apps)
-    </a>
-
-    <div class="note">Method 3: Standard HTTPS</div>
-    <a href="https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918" class="btn btn-3">
-        Attempt 3 (Standard)
-    </a>
-
-    <div class="note">Method 4: Javascript Force</div>
-    <button onclick="window.location.href='itms-apps://itunes.apple.com/app/id6748595918'" class="btn btn-4">
-        Attempt 4 (JS Force)
-    </button>
 
 </body>
 
