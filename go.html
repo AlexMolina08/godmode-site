@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Open in App Store</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 32px;
+            color: #888;
+        }
+
+        button {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 320px;
+            transition: opacity 0.2s;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button:active {
+            opacity: 0.8;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <h1>Open in App Store</h1>
+    <p>Tap the button to download Godmode</p>
+    
+    <button id="download-btn" type="button">Download Godmode</button>
+
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function(e) {
+            // Safety guards
+            e.preventDefault();
+            
+            var btn = this;
+            if (btn.disabled) return;
+            btn.disabled = true;
+            btn.textContent = "Opening...";
+
+            // Redirect logic
+            var appStoreUrl = "itms-apps://itunes.apple.com/app/id6748595918";
+            var httpsUrl = "https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918";
+
+            // Try native scheme
+            window.location.href = appStoreUrl;
+
+            // Fallback to HTTPS after 500ms
+            setTimeout(function() {
+                window.location.href = httpsUrl;
+                
+                // Re-enable button after a delay in case user comes back
+                setTimeout(function() {
+                    btn.disabled = false;
+                    btn.textContent = "Download Godmode";
+                }, 2000);
+            }, 500);
+        });
+    </script>
+</body>
+</html>
