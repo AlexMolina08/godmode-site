@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -57,40 +58,35 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Open in App Store</h1>
     <p>Tap the button to download Godmode</p>
-    
+
     <button id="download-btn" type="button">Download Godmode</button>
 
-    <script>
-        document.getElementById('download-btn').addEventListener('click', function(e) {
-            // Safety guards
-            e.preventDefault();
-            
-            var btn = this;
-            if (btn.disabled) return;
-            btn.disabled = true;
-            btn.textContent = "Opening...";
+    document.getElementById('download-btn').addEventListener('click', function(e) {
+    // Safety guards
+    e.preventDefault();
 
-            // Redirect logic
-            var appStoreUrl = "itms-apps://itunes.apple.com/app/id6748595918";
-            var httpsUrl = "https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918";
+    var btn = this;
+    if (btn.disabled) return;
+    btn.disabled = true;
+    btn.textContent = "Opening...";
 
-            // Try native scheme
-            window.location.href = appStoreUrl;
+    // Use HTTPS Universal Link strictly.
+    // The 'itms-apps' scheme causes "Action can't be completed" in TikTok.
+    // HTTPS link will trigger the system Universal Link handler or fall back to the App Store page.
+    var httpsUrl = "https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918";
 
-            // Fallback to HTTPS after 500ms
-            setTimeout(function() {
-                window.location.href = httpsUrl;
-                
-                // Re-enable button after a delay in case user comes back
-                setTimeout(function() {
-                    btn.disabled = false;
-                    btn.textContent = "Download Godmode";
-                }, 2000);
-            }, 500);
-        });
-    </script>
+    window.location.href = httpsUrl;
+
+    // Re-enable button after a longer delay
+    setTimeout(function() {
+    btn.disabled = false;
+    btn.textContent = "Download Godmode";
+    }, 3000);
+    });
 </body>
+
 </html>
