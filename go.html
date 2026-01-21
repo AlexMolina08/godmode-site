@@ -3,79 +3,45 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    <meta http-equiv="refresh" content="0; url=https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918">
-
-    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Download App</title>
     <style>
         body {
             background-color: #000000;
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            color: white;
+            font-family: -apple-system, system-ui, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
+            text-align: center;
         }
 
-        /* Simple spinner to show activity while the redirect fires */
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            border-left-color: #ffffff;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        p {
-            font-size: 16px;
-            color: #888;
-        }
-
-        /* HIDDEN SAFETY LINK: Only appears if the redirect fails completely */
-        #safety-link {
-            display: none;
+        .btn {
+            background-color: white;
+            color: black;
+            padding: 20px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 12px;
+            text-decoration: none;
             margin-top: 20px;
-            color: #fff;
-            text-decoration: underline;
+            display: inline-block;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="spinner"></div>
-    <p>Loading App Store...</p>
+    <h1>Test Page</h1>
+    <p>We are testing the link mechanism.</p>
 
-    <a id="safety-link" href="https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918">
-        Click here if not redirected
+    <a href="https://apps.apple.com/us/app/spotify-music-and-podcasts/id324684580" class="btn">
+        Open Spotify (Test)
     </a>
 
-    <script>
-        // 2. Javascript Redirect: The aggressive redirect
-        // We use window.location.replace to avoid keeping this page in history
-        window.location.replace("https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918");
-
-        // Safety Timer: If the user is still here after 3 seconds, show the manual link
-        setTimeout(function () {
-            document.getElementById('safety-link').style.display = 'block';
-        }, 3000);
-    </script>
 </body>
 
 </html>
