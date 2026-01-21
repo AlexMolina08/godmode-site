@@ -73,12 +73,12 @@
     <p>Tap the button to download Godmode</p>
 
     <!-- 
-        Native Anchor Tag:
-        TikTok's in-app browser blocks window.location.href and other programmatic redirects ("Action can't be completed").
-        A standard <a href> tag with a _self or _top target is the most robust way to trigger a Universal Link.
-        We style it exactly like the button.
+        Native Anchor Tag with Target New Window:
+        TikTok's in-app browser blocks standard navigation to "apps.apple.com".
+        Adding target="_blank" often forces the WebView to hand off the navigation to the OS or a new window context,
+        which allows the Universal Link to trigger correctly.
     -->
-    <a id="download-link" href="https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918"
+    <a id="download-link" href="https://apps.apple.com/us/app/godmode-ai-workout-planner/id6748595918" target="_blank"
         class="button-style">Download Godmode</a>
 
     <script>
