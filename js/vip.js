@@ -126,7 +126,17 @@ function renderAmbassador(ambassador) {
     const passesMsg = document.getElementById('ambassador-passes');
 
     if (headerTitle) headerTitle.textContent = i18n.t('vip.ambassador_access', { name: ambassador.name });
-    if (initials) initials.textContent = ambassador.name.substring(0, 2).toUpperCase();
+    if (initials) {
+        if (ambassador.imageUrl) {
+            initials.textContent = '';
+            initials.style.backgroundImage = `url('${ambassador.imageUrl}')`;
+            initials.style.backgroundSize = 'cover';
+            initials.style.backgroundPosition = 'center';
+        } else {
+            initials.textContent = ambassador.name.substring(0, 2).toUpperCase();
+            initials.style.backgroundImage = '';
+        }
+    }
     if (cardName) cardName.textContent = ambassador.name;
     if (cardId) cardId.textContent = `${i18n.t('vip.id')}: ${ambassador.vip_code.split('-').pop().substring(0, 6)}`;
 
