@@ -1,4 +1,16 @@
 {
     "cleanUrls": true,
-    "trailingSlash": false
+    "trailingSlash": false,
+    "rewrites": [
+        {
+            "source": "/vip",
+            "destination": "/api/vip",
+            "missing": [
+                {
+                    "type": "query",
+                    "key": "_r"
+                }
+            ]
+        }
+    ]
 }
